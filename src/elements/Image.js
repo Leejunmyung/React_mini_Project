@@ -25,12 +25,18 @@ const Image = (props) => {
             <ImageBig {...styles}></ImageBig>
         );
     };
+
+    if(shape === "full"){
+        return (
+            <ImageFull {...styles}></ImageFull>
+        );
+    };
 };
 
 Image.defaultProps = {
     shape: "medium",
     src: "https://i.ytimg.com/vi/9J67amvesFg/maxresdefault.jpg",
-    width: "300px",
+    width: "100%",
     height: "170px",
 };
 
@@ -49,6 +55,13 @@ const ImageMedium = styled.div`
 const ImageBig = styled.div`
     width: 640px;
     height: 355px;
+    background-image: url("${(props) => props.src}");
+    background-size: cover;
+`
+
+const ImageFull = styled.div`
+    width: 100%;
+    height:300px; 
     background-image: url("${(props) => props.src}");
     background-size: cover;
 `
