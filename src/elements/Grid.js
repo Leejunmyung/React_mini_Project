@@ -52,7 +52,7 @@ const GridBox = styled.div`
     box-sizing:border-box;
     padding: ${(props)=> props.padding ? `${props.padding}` : ""};
     margin:${(props)=> props.margin ? `${props.margin}`:""};
-    display:${(props)=> props.is_flex ? `${props.is_flex}`:""};
+    display:${(props)=> props.flex ? `${props.flex}`:""};
     
 `;
 

@@ -2,12 +2,15 @@ import React from "react";
 import styled from "styled-components";
 
 const Button = (props) => {
-    const {text,_onClick,check_btn}=props;
-
+    const {position,width,text,_onClick,check_btn}=props;
+    const styles={
+        position:position,
+        width:width,
+    }
 
     if(check_btn){
         return(
-                <BtnCheck onClick={_onClick} >
+                <BtnCheck onClick={_onClick} {...styles}>
                     {text} 
                 </BtnCheck>
         );
@@ -15,23 +18,25 @@ const Button = (props) => {
 
 
     return (
-            <BtnSubmit onClick={_onClick} >
+            <BtnSubmit onClick={_onClick} {...styles}>
                 {text} 
             </BtnSubmit>    
     );
 };
 
 Button.defaultProps={
+    position:false,
+    width:'100%',
     text:'텍스트',
     _onClick:()=>{},
     _disabled:()=>{},
+
 }
 
 
 const BtnSubmit = styled.button`
-
+    width:${(props) =>props.width};   
     display:block;
-    width: 100%;
     height:48px;
     background:#c4c4c4;
     border:none;
@@ -41,8 +46,9 @@ const BtnSubmit = styled.button`
 `;
 
 const BtnCheck = styled.button`
+    position : ${(props)=> props.position ? `${props.position}`:""};
     display:inline-block;
-    
+    width:${(props) =>props.width};   
     padding:11px 20px;
     background:#c4c4c4;
     border:none;
