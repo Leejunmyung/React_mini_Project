@@ -6,7 +6,6 @@ import Grid from "../elements/Grid";
 import Image from "../elements/Image";
 import Text from "../elements/Text";
 
-
 const PostList = (props) => {
 
     return (

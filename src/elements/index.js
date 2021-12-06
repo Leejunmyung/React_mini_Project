@@ -1,7 +1,9 @@
-import Grid from '../elements/Grid';
-import Image from '../elements/Image';
-import Text from '../elements/Text';
-import Input from '../elements/Input';
-import Button from './Button';
-import Spinner from './Spinner';
-export {Grid,Image,Text,Input,Button,Spinner};
+import Grid from "./Grid";
+import Image from "./Image";
+import Text from "./Text";
+import Input from "./Input";
+import Button from "./Button";
+import Spinner from "./Spinner";
+
+export {Grid, Image, Text, Input, Button, Spinner};
+
