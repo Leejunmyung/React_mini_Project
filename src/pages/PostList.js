@@ -1,11 +1,15 @@
 import React from "react";
+import Button from "../elements/Button";
+import Input from "../elements/Input";
 
 const PostList = (props) => {
 
     return (
-        <React.Fragment>
-            메인페이지다!
-        </React.Fragment>
+        <>
+            <Button text="회원가입"></Button>
+            <Button check_btn text="인증하기" ></Button>
+            <Input></Input>
+        </>
     );
 };
 

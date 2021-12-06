@@ -1,12 +1,44 @@
 import React from "react";
+import styled from "styled-components";
 
 const Input = (props) => {
 
-    return (
-        <React.Fragment>
+    const {InputTitle,type,placeholder,_onChange,value} = props;
 
-        </React.Fragment>
+    if(InputTitle){
+        return(
+            <>
+                <InputBox type={type} placeholder={placeholder} onChange={_onChange} value={value} />
+            </>
+           
+        );
+    }
+
+    return (
+        <InputBox type={type} placeholder={placeholder} onChange={_onChange} value={value} />
     );
 };
+
+Input.defaultProps = {
+    label:'',
+    placeholder:'텍스트',
+    type:'text',
+    value:'',
+    
+};
+
+const InputBox = styled.input`
+    display:block;
+    width: 370px;
+    height:48px;
+    padding:0 16px;
+    box-sizing:border-box;
+    border:1px solid #c4c4c4;
+    border-radius:4px;
+    color:#c4c4c4;
+    font-size:17px;
+`;
+
+
 
 export default Input;
