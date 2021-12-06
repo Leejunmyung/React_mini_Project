@@ -1,12 +1,58 @@
 import React from "react";
+import styled from "styled-components";
 
 const Image = (props) => {
+    const {shape, src} = props;
 
-    return (
-        <React.Fragment>
+    const styles = {
+        src: src,
+    }
+    
+    if(shape === "samll"){
+        return (
+            <ImageSmall {...styles}></ImageSmall>
+        );
+    };
 
-        </React.Fragment>
-    );
+    if(shape === "medium"){
+        return (
+            <ImageMedium {...styles}></ImageMedium>
+        );
+    };
+
+    if(shape === "big"){
+        return (
+            <ImageBig {...styles}></ImageBig>
+        );
+    };
 };
+
+Image.defaultProps = {
+    shape: "medium",
+    src: "https://i.ytimg.com/vi/9J67amvesFg/maxresdefault.jpg",
+    width: "300px",
+    height: "170px",
+};
+
+const ImageSmall = styled.div`
+    width: 90px;
+    height: 65px;
+    background-image: url("${(props) => props.src}");
+    background-size: cover;
+`
+const ImageMedium = styled.div`
+    width: 300px;
+    height: 175px;
+    background-image: url("${(props) => props.src}");
+    background-size: cover;
+`
+const ImageBig = styled.div`
+    width: 640px;
+    height: 355px;
+    background-image: url("${(props) => props.src}");
+    background-size: cover;
+`
+
+
 
 export default Image;
