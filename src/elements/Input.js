@@ -29,7 +29,7 @@ Input.defaultProps = {
 
 const InputBox = styled.input`
     display:block;
-    width: 370px;
+    width: 100%;
     height:48px;
     padding:0 16px;
     box-sizing:border-box;

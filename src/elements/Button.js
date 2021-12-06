@@ -31,7 +31,7 @@ Button.defaultProps={
 const BtnSubmit = styled.button`
 
     display:block;
-    width: 370px;
+    width: 100%;
     height:48px;
     background:#c4c4c4;
     border:none;
