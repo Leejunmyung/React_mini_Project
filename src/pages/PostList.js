@@ -9,7 +9,7 @@ const PostList = (props) => {
             메인페이지다!
             <Image shape="big"></Image>
             <Text bold>하하하하하하</Text>
-            <Text>tttt</Text>
+            <Text>ttttttt</Text>
         </React.Fragment>
     );
 };
