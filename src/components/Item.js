@@ -5,9 +5,10 @@ import {history} from '../redux/configureStore';
 import { actionCreators as itemActions } from '../redux/modules/item';
 
 const Item = (props) => {
+  const {_onClick} = props;
   return(
     <>
-      <Grid width="auto" >
+      <Grid width="auto" _onClick={_onClick} >
         <Image shape="medium" src={props.thumbnail}/>
         <Text align="left">{props.title}</Text>
         <Text align="left">{props.price}</Text>
@@ -25,7 +26,8 @@ Item.defaultProps = {
     price:70000,
     targetPrice: 5000000,
     content:"이 상품을 구매하기 위해서는 많은 분들의 펀딩이 필요합니다!",
-    totalPrice:0
+    totalPrice:0,
+    _onClick:()=>{}
   
 }
 export default Item;
