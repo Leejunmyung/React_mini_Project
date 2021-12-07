@@ -1,4 +1,5 @@
 import React from "react";
+import CommentList from "../components/CommentList";
 import {Image, Text, Button, Input, Grid,Line} from "../elements/index";
 
 const PostDetail = (props) => {
@@ -31,34 +32,11 @@ const PostDetail = (props) => {
                     <Line margin="10px 0 30px 0 "/>
                 </Grid>
 
-                <Grid>
-                    <Text align="left">닉네임 : nickname</Text>
-                     <Grid flex="flex; align-items:center; ">
-                        <Input boxSizing ="content-box" padding ="10px 230px 10px 20px  " type="text" placeholder="댓글 : comment"/>
-                        <Button position="absolute;right:10px;" width="200px" check_btn text="삭제" />
-                     </Grid>
-                </Grid>
-                <Grid>
-                    <Text align="left">닉네임 : nickname</Text>
-                     <Grid flex="flex; align-items:center; ">
-                        <Input boxSizing ="content-box" padding ="10px 230px 10px 20px  " type="text" placeholder="댓글 : comment"/>
-                        <Button position="absolute;right:10px;" width="200px" check_btn text="삭제" />
-                     </Grid>
-                </Grid>
-                <Grid>
-                    <Text align="left">닉네임 : nickname</Text>
-                     <Grid flex="flex; align-items:center; ">
-                        <Input boxSizing ="content-box" padding ="10px 230px 10px 20px  " type="text" placeholder="댓글 : comment"/>
-                        <Button position="absolute;right:10px;" width="200px" check_btn text="삭제" />
-                     </Grid>
-                </Grid>
-                <Grid>
-                    <Text align="left">닉네임 : nickname</Text>
-                     <Grid flex="flex; align-items:center; ">
-                        <Input boxSizing ="content-box" padding ="10px 230px 10px 20px  " type="text" placeholder="댓글 : comment"/>
-                        <Button position="absolute;right:10px;" width="200px" check_btn text="삭제" />
-                     </Grid>
-                </Grid>
+                <CommentList />
+                <CommentList />
+                <CommentList />
+                <CommentList />
+                <CommentList />
             </Grid>
         </>
     );
