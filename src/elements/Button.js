@@ -32,7 +32,7 @@ Button.defaultProps={
     text:'텍스트',
     _onClick:()=>{},
     _disabled:()=>{},
-    width:"100%",
+    
 }
 
 
