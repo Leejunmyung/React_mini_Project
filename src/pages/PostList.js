@@ -5,32 +5,41 @@ import Input from "../elements/Input";
 import Grid from "../elements/Grid";
 import Image from "../elements/Image";
 import Text from "../elements/Text";
+import Item from "../components/Item";
+import Rank from "../components/Rank";
 
 const PostList = (props) => {
 
     return (
         <>
-            <Grid signWrap>
-                <Text>회원가입, 로그인 페이지 grid = signWrap</Text>
-                <Button text="회원가입"></Button>
-                <Button check_btn text="인증하기" ></Button>
-                <Input></Input>
-
-                메인페이지다!
-                <Image shape="full"></Image>
-                <Text bold>하하하하하하</Text>
-                
+            <Grid> 
+                <Image shape="full"/>
             </Grid>
             <Grid contentWrap>
-                <Text>일반 페이지 grid = contentWrap</Text>
-                <Button text="회원가입"></Button>
-                <Button check_btn text="인증하기" ></Button>
-                <Input></Input>
+            <Text align="left" size="40px">이 에코펀딩 어때요?</Text>
+               <Grid flex="flex">
+                   
+                  <Grid  flex="flex;flex-wrap:wrap;justify-content:space-between;">
+                    <Item/>
+                    <Item/>
+                    <Item/>
+                    <Item/>
+                    <Item/>
+                    <Item/>
+                    <Item/>
+                    <Item/>
+                    <Item/>
 
-                메인페이지다!
-                <Image shape="full"></Image>
-                <Text bold>하하하하하하</Text>
-                
+                  </Grid>
+                  <Grid width="auto">
+                     <Rank/>
+                     <Rank/>
+                     <Rank/>
+                     <Rank/>
+                     <Rank/>
+                  </Grid>
+
+               </Grid>
             </Grid>
         </>
     );

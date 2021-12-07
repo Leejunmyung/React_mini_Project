@@ -56,12 +56,12 @@ const GridBox = styled.div`
     margin:${(props)=> props.margin ? `${props.margin}`:""};
     display:${(props)=> props.flex ? `${props.flex}`:""};
     text-align:${(props) => props.align};
-    
+   
 `;
 
 const ContentWrap = styled.div`
     position:relative;
-    width:1080px;
+    width:1200px;
     margin:0 auto;
     border:1px solid #eee;  // 임시로 지정
     text-align:${(props) => props.align};

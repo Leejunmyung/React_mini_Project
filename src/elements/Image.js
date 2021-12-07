@@ -8,7 +8,7 @@ const Image = (props) => {
         src: src,
     }
     
-    if(shape === "samll"){
+    if(shape === "small"){
         return (
             <ImageSmall {...styles}></ImageSmall>
         );
@@ -35,19 +35,19 @@ const Image = (props) => {
 
 Image.defaultProps = {
     shape: "medium",
-    src: "https://i.ytimg.com/vi/9J67amvesFg/maxresdefault.jpg",
+    src: "https://images.unsplash.com/photo-1627483262769-04d0a1401487?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
     width: "100%",
     height: "170px",
 };
 
 const ImageSmall = styled.div`
-    width: 90px;
+    width: 150px;
     height: 65px;
     background-image: url("${(props) => props.src}");
     background-size: cover;
 `
 const ImageMedium = styled.div`
-    width: 300px;
+    width: 250px;
     height: 175px;
     background-image: url("${(props) => props.src}");
     background-size: cover;
@@ -61,7 +61,7 @@ const ImageBig = styled.div`
 
 const ImageFull = styled.div`
     width: 100%;
-    height:300px; 
+    height:400px; 
     background-image: url("${(props) => props.src}");
     background-size: cover;
 `
