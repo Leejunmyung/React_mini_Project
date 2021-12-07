@@ -5,9 +5,10 @@ import {history} from '../redux/configureStore';
 import { actionCreators as itemActions } from '../redux/modules/item';
 
 const Item = (props) => {
+  const {_onClick}=props;
   return(
     <>
-      <Grid width="auto" >
+      <Grid width="auto" _onClick={_onClick}>
         <Image shape="medium" src={props.thumbnail}/>
         <Text align="left">{props.title}</Text>
         <Text align="left">{props.price}</Text>
