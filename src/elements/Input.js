@@ -6,12 +6,14 @@ import { Text,Grid } from ".";
 
 
 const Input = (props) => {
-    const {boxSizing,InputTitle,type,placeholder,label,margin, _onChange,padding,textarea} = props;
+    const {boxSizing,InputTitle,type,placeholder,label,margin,
+       _onChange,padding,textarea, height} = props;
 
     const styles={
         margin:margin,
         padding:padding,
         boxSizing:boxSizing,
+        height:height,
 
     }
 
@@ -42,6 +44,7 @@ const Input = (props) => {
             type={type}
             placeholder={placeholder}
             onChange={_onChange}
+            {...styles}
            
           />
         </>
@@ -61,13 +64,13 @@ const Input = (props) => {
 
 
 Input.defaultProps = {
-
     label:'',
     placeholder:'텍스트',
     type:'text',
     value:'',
-    padding:'0 16px',
+    padding:"",
     boxSizing:'border-box',
+    height:"60px",
    
     
 };
@@ -75,7 +78,7 @@ Input.defaultProps = {
 const InputBox = styled.input`
     display:block;
     width: 100%;
-    height:48px;
+    height:${(props)=> props.height};
     padding: ${(props)=> props.padding};
     box-sizing: ${(props)=> props.boxSizing};
     border:1px solid #c4c4c4;
