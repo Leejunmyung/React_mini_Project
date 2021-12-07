@@ -6,13 +6,8 @@ import { setCookie } from "../shared/Cookie";
 
 const Login = (props) => {
 
-  // const [id, setId] = React.useState("");
-  // const [pwd, setPwd] = React.useState("");
-
-  const login = () => {
-    // setCookie("user_id", "luwa", 3);
-    // setCookie("user_pwd", "1234", 3);
-  }
+  const [id, setId] = React.useState("");
+  const [pwd, setPwd] = React.useState("");
 
   const changeId = (e) => {
     console.log(e.target.value);

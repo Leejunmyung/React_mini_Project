@@ -61,7 +61,7 @@ const GridBox = styled.div`
 
 const ContentWrap = styled.div`
     position:relative;
-    width:1200px;
+    width:1220px;
     margin:0 auto;
     border:1px solid #eee;  // 임시로 지정
     text-align:${(props) => props.align};

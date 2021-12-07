@@ -1,15 +1,18 @@
 import React from "react";
+import {Grid,Image,Text} from '../elements/index';
+import { useSelector,  } from "react-redux";
+import {history} from '../redux/configureStore';
 
-import Button from "../elements/Button";
-import Input from "../elements/Input";
-import Grid from "../elements/Grid";
-import Image from "../elements/Image";
-import Text from "../elements/Text";
+
 import Item from "../components/Item";
 import Rank from "../components/Rank";
 
-const PostList = (props) => {
+const ItemList = (props) => {
+    const item_list = useSelector((state)=> state.item.result)
 
+
+
+    
     return (
         <>
             <Grid> 
@@ -20,15 +23,12 @@ const PostList = (props) => {
                <Grid flex="flex">
                    
                   <Grid  flex="flex;flex-wrap:wrap;justify-content:space-between;">
-                    <Item/>
-                    <Item/>
-                    <Item/>
-                    <Item/>
-                    <Item/>
-                    <Item/>
-                    <Item/>
-                    <Item/>
-                    <Item/>
+                   {
+                       item_list.map((p,idx)=>{
+                        return  <Item key={p.id} {...p}  _onClick={()=>{history.push('/item/'+idx)}}/>
+                        
+                       })
+                   }
 
                   </Grid>
                   <Grid width="auto">
@@ -45,4 +45,4 @@ const PostList = (props) => {
     );
 };
 
-export default PostList;
+export default ItemList;
