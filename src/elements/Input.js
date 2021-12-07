@@ -34,6 +34,20 @@ const Input = (props) => {
             </Grid>
         );
     }
+    if(label) {
+        return(
+          <>
+          <Text>{label}</Text>
+          <InputBox
+            type={type}
+            placeholder={placeholder}
+            onChange={_onChange}
+           
+          />
+        </>
+        );
+      
+    };
 
 
     return (
@@ -42,30 +56,9 @@ const Input = (props) => {
     );
   };
 
-  if(label) {
-      return(
-        <>
-        <Text>{label}</Text>
-        <InputBox
-          type={type}
-          placeholder={placeholder}
-          onChange={_onChange}
-          value={value}
-        />
-      </>
-      );
-    
-  };
 
-  return (
-    <InputBox
-      type={type}
-      placeholder={placeholder}
-      onChange={_onChange}
-      value={value}
-    />
-  );
-};
+
+
 
 Input.defaultProps = {
 
