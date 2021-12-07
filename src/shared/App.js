@@ -13,7 +13,7 @@ import "./App.css";
 
 function App() {
   return (
-    <>
+    <><Header></Header>
       <Switch>
         <Route path="/" exact component={ItemList} />
         <Route path="/login" exact component={Login} />

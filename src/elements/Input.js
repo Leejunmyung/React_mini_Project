@@ -6,8 +6,10 @@ import { Text,Grid } from ".";
 
 
 const Input = (props) => {
+
     const {boxSizing,InputTitle,type,placeholder,label,margin,
        _onChange,padding,textarea, height} = props;
+
 
     const styles={
         margin:margin,
@@ -39,6 +41,7 @@ const Input = (props) => {
     if(label) {
         return(
           <>
+
           <Text>{label}</Text>
           <InputBox
             type={type}
@@ -47,6 +50,7 @@ const Input = (props) => {
             {...styles}
            
           />
+
         </>
         );
       
@@ -70,7 +74,9 @@ Input.defaultProps = {
     value:'',
     padding:"",
     boxSizing:'border-box',
+
     height:"60px",
+
    
     
 };
