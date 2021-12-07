@@ -1,9 +1,11 @@
 import React from "react";
 import styled from "styled-components";
+
 import { Text,Grid } from ".";
 
-const Input = (props) => {
 
+
+const Input = (props) => {
     const {boxSizing,InputTitle,type,placeholder,label,margin, _onChange,padding,textarea} = props;
 
     const styles={
@@ -36,10 +38,37 @@ const Input = (props) => {
 
     return (
         <InputBox type={type} placeholder={placeholder} onChange={_onChange} {...styles} />
+
     );
+  };
+
+  if(label) {
+      return(
+        <>
+        <Text>{label}</Text>
+        <InputBox
+          type={type}
+          placeholder={placeholder}
+          onChange={_onChange}
+          value={value}
+        />
+      </>
+      );
+    
+  };
+
+  return (
+    <InputBox
+      type={type}
+      placeholder={placeholder}
+      onChange={_onChange}
+      value={value}
+    />
+  );
 };
 
 Input.defaultProps = {
+
     label:'',
     placeholder:'텍스트',
     type:'text',
@@ -70,3 +99,4 @@ width:100%;
 
 
 export default Input;
+

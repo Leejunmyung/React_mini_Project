@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 
 const Button = (props) => {
+
+  
     const {position,width,text,_onClick,check_btn}=props;
     const styles={
         position:position,
@@ -30,13 +32,13 @@ Button.defaultProps={
     text:'텍스트',
     _onClick:()=>{},
     _disabled:()=>{},
-
+    width:"100%",
 }
 
 
 const BtnSubmit = styled.button`
-    width:${(props) =>props.width};   
-    display:block;
+    position: ${(props)=> props.position ? `${props.position}`: " "};
+    width: ${(props)=> props.width};
     height:48px;
     background:#c4c4c4;
     border:none;

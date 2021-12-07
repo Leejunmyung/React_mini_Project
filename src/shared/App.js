@@ -1,5 +1,8 @@
 import React from "react";
+
 import { Switch, Route } from "react-router-dom";
+import Header from "../components/Header";
+
 import PostList from "../pages/PostList";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";

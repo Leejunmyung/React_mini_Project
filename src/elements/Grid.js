@@ -3,13 +3,14 @@ import styled from 'styled-components';
 
 const Grid = (props) => {
 
-    const {position,children,flex,width,padding,margin,_onClick,contentWrap,signWrap} = props;
+    const {position,children,flex,width,padding,margin,_onClick,contentWrap,signWrap,align} = props;
     const styles = {
         flex:flex,
         position:position,
         width:width,
         padding:padding,
         margin:margin,
+        align:align,
     }
 
 
@@ -42,6 +43,7 @@ Grid.defaultProps ={
     width:"100%",
     padding:false,
     margin:false,
+    align:false,
     _onClick:()=>{}
 }
 
@@ -50,10 +52,11 @@ const GridBox = styled.div`
     width:${(props) =>props.width};   
     height:100%;
     box-sizing:border-box;
-    padding: ${(props)=> props.padding ? `${props.padding}` : ""};
+    padding:${(props)=> props.padding ? `${props.padding}`:""};
     margin:${(props)=> props.margin ? `${props.margin}`:""};
     display:${(props)=> props.flex ? `${props.flex}`:""};
-    
+    text-align:${(props) => props.align};
+   
 `;
 
 const ContentWrap = styled.div`
@@ -61,7 +64,7 @@ const ContentWrap = styled.div`
     width:1200px;
     margin:0 auto;
     border:1px solid #eee;  // 임시로 지정
-    text-align:center;
+    text-align:${(props) => props.align};
 
 `;
 const SignWrap = styled.div`
@@ -69,7 +72,7 @@ const SignWrap = styled.div`
     width:400px;
     margin:0 auto;
     border:1px solid #eee;  // 임시로 지정
-    text-align:center;
+    text-align:${(props) => props.align};
     padding: 100px 20px; 
 
 `;
