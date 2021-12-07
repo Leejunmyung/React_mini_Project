@@ -5,6 +5,7 @@ import {useSelector, useDispatch} from "react-redux";
 import { actionCreators as userActions } from "../redux/modules/user";
 import {history} from "../redux/configureStore";
 
+
 const Header = (props) => {
   const dispatch = useDispatch();
   const is_login = useSelector((state) => state.user.is_login);
@@ -12,12 +13,13 @@ const Header = (props) => {
   if(is_login) {
     return(
       <Grid flex="flex;">
-        <Grid align="center">
+        <Grid align="center" _onClick={()=>{history.push('/')}}>
             <Text size="30px">Eco Funding</Text>
         </Grid>
         <Grid flex="flex" width="1000px">
-            <Button width="200px" text="내정보"></Button>
-            <Button width="200px" text="로그아웃" _onClick={()=>{
+            <Button width="200px" margin="0 10px" text="내정보"></Button>
+            <Button width="200px" margin="0 10px" text="펀딩 등록하기" _onClick={()=>{history.push('/write/a');}}></Button>
+            <Button width="200px" margin="0 10px" text="로그아웃" _onClick={()=>{
               dispatch(userActions.logOut({}))
             }}></Button>
         </Grid>
@@ -28,7 +30,7 @@ const Header = (props) => {
 
   return (
     <Grid flex="flex;">
-        <Grid align="center">
+        <Grid align="center" _onClick={()=>{history.push('/')}}>
             <Text size="30px">Eco Funding</Text>
         </Grid>
         <Grid flex="flex" width="1000px">

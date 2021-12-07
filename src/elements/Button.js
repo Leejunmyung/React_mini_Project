@@ -4,25 +4,26 @@ import styled from "styled-components";
 const Button = (props) => {
 
   
-    const {position,width,text,_onClick,check_btn}=props;
+    const {position,width,text,_onClick,check_btn,margin}=props;
     const styles={
         position:position,
         width:width,
+        margin:margin,
     }
 
     if(check_btn){
         return(
-                <BtnCheck onClick={_onClick} {...styles}>
-                    {text} 
-                </BtnCheck>
+            <BtnCheck onClick={_onClick} {...styles}>
+                {text} 
+            </BtnCheck>
         );
     }
 
 
     return (
-            <BtnSubmit onClick={_onClick} {...styles}>
-                {text} 
-            </BtnSubmit>    
+        <BtnSubmit onClick={_onClick} {...styles}>
+            {text} 
+        </BtnSubmit>    
     );
 };
 
@@ -30,6 +31,7 @@ Button.defaultProps={
     position:false,
     width:'100%',
     text:'텍스트',
+    margin:"",
     _onClick:()=>{},
     _disabled:()=>{},
     
@@ -39,6 +41,7 @@ Button.defaultProps={
 const BtnSubmit = styled.button`
     position: ${(props)=> props.position ? `${props.position}`: " "};
     width: ${(props)=> props.width};
+    margin:${(props)=> props.margin};
     height:48px;
     background:#c4c4c4;
     border:none;
