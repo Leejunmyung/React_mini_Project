@@ -1,14 +1,21 @@
 import React from "react";
 import { Text, Input, Grid, Button } from "../elements";
 
-import { setCookie } from "../shared/Cookie";
+import {getCookie, setCookie } from "../shared/Cookie";
+
+import {useDispatch} from "react-redux"
+import { actionCreators as userActions } from "../redux/modules/user";
+
 
 
 const Login = (props) => {
+  const dispatch = useDispatch();
 
   const [id, setId] = React.useState("");
   const [pwd, setPwd] = React.useState("");
 
+  
+  
   const changeId = (e) => {
     console.log(e.target.value);
     setId(e.target.value);
@@ -20,8 +27,7 @@ const Login = (props) => {
   }
 
   const login = () => {
-    setCookie("user_id", id, 3);
-    setCookie("user_pwd", pwd, 3);
+    dispatch(userActions.loginNJ({user_name: "jun"}));
   }
 
   return (

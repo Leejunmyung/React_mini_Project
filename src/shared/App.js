@@ -1,8 +1,5 @@
 import React from "react";
-
-import {  Route } from "react-router-dom";
-import {ConnectedRouter} from 'connected-react-router';
-import {history} from '../redux/configureStore';
+import { Route } from "react-router-dom";
 import Header from "../components/Header";
 import { useDispatch } from "react-redux";
 
@@ -11,6 +8,9 @@ import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 import ItemWrite from "../pages/ItemWrite";
 import ItemDetail from "../pages/ItemDetail";
+
+import { ConnectedRouter } from "connected-react-router";
+import { history } from "../redux/configureStore";
 
 function App() {
 
