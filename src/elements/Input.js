@@ -6,7 +6,10 @@ import { Text,Grid } from ".";
 
 
 const Input = (props) => {
-    const {boxSizing,InputTitle,type,placeholder,label,margin, _onChange,padding,textarea,height} = props;
+
+    const {boxSizing,InputTitle,type,placeholder,label,margin,
+       _onChange,padding,textarea, height} = props;
+
 
     const styles={
         margin:margin,
@@ -38,8 +41,16 @@ const Input = (props) => {
     if(label) {
         return(
           <>
-            <Text>{label}</Text>
-            <InputBox  type={type} placeholder={placeholder}  onChange={_onChange} {...styles}/>
+
+          <Text>{label}</Text>
+          <InputBox
+            type={type}
+            placeholder={placeholder}
+            onChange={_onChange}
+            {...styles}
+           
+          />
+
         </>
         );
       
@@ -57,14 +68,15 @@ const Input = (props) => {
 
 
 Input.defaultProps = {
-
     label:'',
     placeholder:'텍스트',
     type:'text',
     value:'',
-    padding:'0 16px',
+    padding:"",
     boxSizing:'border-box',
-    height:'60px',
+
+    height:"60px",
+
    
     
 };

@@ -10,14 +10,15 @@ const Signup = (props) => {
           회원가입
         </Text>
         <Grid position="relative" >
-          <Input placeholder="로그인 할 아이디" label="아이디"  padding="5px 0 5px 10px"></Input>
+
             <Button position="absolute; right:5px; top:48px" width="80px" text="중복확인"></Button>
-            
+            <Input placeholder="로그인 할 아이디" label="아이디" padding ="5px 0px 5px 10px"></Input>
             
         </Grid>
         <Grid position="relative" >
-        <Input placeholder="두 글자 이상 닉네임" label="닉네임"  padding="5px 0 5px 10px"></Input>
             <Button position="absolute; right:5px; top:48px" width="80px" text="중복확인"></Button>
+            <Input placeholder="두 글자 이상 닉네임" label="닉네임" padding ="5px 0px 5px 10px"></Input>
+            
         </Grid>
        
         
