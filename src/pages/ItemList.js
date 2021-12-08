@@ -2,13 +2,11 @@ import React, { useEffect, useState } from "react";
 import {Grid,Image,Text} from '../elements/index';
 import { useDispatch, useSelector,  } from "react-redux";
 import {history} from '../redux/configureStore';
-import { actionCreators as itemActions } from "../redux/modules/item";
 
 import Item from "../components/Item";
 import Rank from "../components/Rank";
 import api from "../api/posts";
 import { actionCreators as itemActions } from "../redux/modules/item";
-import { useDispatch } from "react-redux";
 
 const ItemList = (props) => {
     const item_list = useSelector((state)=> state.item.result)

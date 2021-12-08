@@ -2,9 +2,6 @@ import {createAction, handleActions} from 'redux-actions';
 import {produce} from 'immer';
 import api from "../../api/posts";
 
-import api from '../../api/posts';
-
-
 //액션 타입
 
 const LOAD_ITEM = "LOAD_ITEM";
@@ -38,7 +35,6 @@ const addItemNJ = (item ) => {
   }
 
 }
-
 
 
 //reducer
