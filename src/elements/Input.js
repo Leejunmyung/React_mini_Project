@@ -8,7 +8,7 @@ import { Text,Grid } from ".";
 const Input = (props) => {
 
     const {boxSizing,InputTitle,type,placeholder,label,margin,
-       _onChange,padding,textarea, height} = props;
+       _onChange,padding,textarea, height, value} = props;
 
 
     const styles={
@@ -23,7 +23,7 @@ const Input = (props) => {
         return(
             <>
                 <Text size="16px" align="left" >{label}</Text>
-                <InputBox type={type} placeholder={placeholder} onChange={_onChange} {...styles} />
+                <InputBox type={type} placeholder={placeholder} value={value} onChange={_onChange} {...styles} />
             </>
            
         );
@@ -32,7 +32,7 @@ const Input = (props) => {
         return (
             <Grid>
                 <Text size="16px"  align="left" >{label}</Text>
-                <Textarea rows="10" {...styles} type={type} placeholder={placeholder} onChange={_onChange}></Textarea>
+                <Textarea rows="10" {...styles} type={type} placeholder={placeholder} value={value} onChange={_onChange}></Textarea>
     
                 
             </Grid>
@@ -47,6 +47,7 @@ const Input = (props) => {
             type={type}
             placeholder={placeholder}
             onChange={_onChange}
+            value={value}
             {...styles}
            
           />
@@ -58,7 +59,7 @@ const Input = (props) => {
 
 
     return (
-        <InputBox type={type} placeholder={placeholder} onChange={_onChange} {...styles} />
+        <InputBox type={type} placeholder={placeholder} onChange={_onChange} value={value} {...styles} />
 
     );
   };
@@ -74,7 +75,7 @@ Input.defaultProps = {
     value:'',
     padding:"",
     boxSizing:'border-box',
-
+    _onChange:()=>{},
     height:"60px",
 
    

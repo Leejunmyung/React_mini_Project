@@ -7,6 +7,7 @@ import Item from "../components/Item";
 import Rank from "../components/Rank";
 import api from "../api/posts";
 import { actionCreators as itemActions } from "../redux/modules/item";
+import { getItemNJ } from "../redux/modules/item";
 
 const ItemList = (props) => {
     const item_list = useSelector((state)=> state.item.result)
@@ -21,7 +22,7 @@ const ItemList = (props) => {
         //     console.log(response)
         // }
         // Posts()
-        dispatch(itemActions.getItemNJ())
+        dispatch(getItemNJ());
     },[])
 
     

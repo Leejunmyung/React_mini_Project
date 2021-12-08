@@ -30,8 +30,8 @@ const Login = (props) => {
   const login = () => {
    dispatch(userActions.loginNJ({user_name: "jun"}));
     // api.post('/posts',
-    // {user_name:"aaaa",
-    //  user_password:"1234"}
+    // {user_name:"fdsdf",
+    //  user_password:"dd"}
     // ).then(function (response) {
     //   console.log(response)
     // })
