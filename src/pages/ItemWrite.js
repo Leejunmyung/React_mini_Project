@@ -4,6 +4,7 @@ import { useHistory } from "react-router";
 
 const PostWrite = (props) => {
     const history = useHistory();
+    const fileInput = React.useRef();
 
     return (
         <>
@@ -22,9 +23,9 @@ const PostWrite = (props) => {
 
             <Grid>
                 <Input InputTitle label="프로젝트 제목*" placeholder="프로젝트 제목을 입력하세요." margin="40px 0 0 0"></Input>
-                <Input InputTitle label="목표 금액*" placeholder="프로젝트 성공을 위한 목표 금액을 입력하세요." margin="40px 0 0 0"></Input>
                 <Input InputTitle label="상품 금액*" placeholder="하나의 상품 금액을 입력하세요."  margin="40px 0 0 0"></Input>
-                <Input type="file" InputTitle label="상품 이미지 등록*" placeholder="이미지 파일" margin="40px 0 0 0"></Input>
+                <Input InputTitle label="목표 금액*" placeholder="상품금액 10배이상을 지정해주세요." margin="40px 0 0 0"></Input>
+                <Input ref={fileInput} type="file" InputTitle label="상품 이미지 등록*" placeholder="이미지 파일" margin="40px 0 0 0"></Input>
                 <Input textarea label="프로젝트 상세 내용*" placeholder="프로젝트 상세 내용을 입력하세요." margin="40px 0 15px 0"></Input>
                 
                 <Button text="등록하기" _onClick={()=>{history.push('/')}}></Button>
