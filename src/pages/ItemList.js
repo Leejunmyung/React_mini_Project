@@ -2,52 +2,22 @@ import React, { useEffect, useState } from "react";
 import {Grid,Image,Text} from '../elements/index';
 import { useSelector,  } from "react-redux";
 import {history} from '../redux/configureStore';
-import api from '../api/items';
 
 import Item from "../components/Item";
 import Rank from "../components/Rank";
+import api from "../api/posts";
 
 const ItemList = (props) => {
     const item_list = useSelector((state)=> state.item.result)
-    const [itemIdx,setitemIdx]= useState(0);
-    const [result,setResult] = useState([{
-        idx:"",
-        title: "",
-        images: "",
-        thumbnail:"",
-        price:"",
-        targetPrice: "",
-        content:"",
-        totalPrice:""
-      }]);
 
-    useEffect(()=>{
-        const fetchItem = async () => {
-            try{
-                const response = await api.get('/result');
-                const _inputData = await response.data.map((rowData)=>(
-                    setitemIdx(itemIdx+1),
-                    {
-                        idx: rowData.idx,
-                        title: rowData.title,
-                        images: rowData.image,
-                        thumbnail:rowData.thumbnail,
-                        price:rowData.price,
-                        targetPrice: rowData.targetPrice,
-                        content:rowData.content,
-                        totalPrice:rowData.totalPrice
-                    }
-                ))
 
-                setResult(result.concat(_inputData));
-            }catch(e){
-                console.error(e.message);
-            }
+    React.useEffect(() => {
+        const Posts = async() => {
+            const response = await api.get('/posts');
+            console.log(response)
         }
-        fetchItem();
-    },[]);
-
-
+        Posts()
+    })
 
     
     return (

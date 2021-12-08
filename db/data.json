@@ -1,0 +1,39 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "리덕스 미들웨어를 배워봅시다",
+      "body": "리덕스 미들웨어를 직접 만들어보면 이해하기 쉽죠."
+    },
+    {
+      "title": "데이터",
+      "body": "테스트데이터",
+      "id": 2
+    },
+    {
+      "user_name": "jun",
+      "user_password": "123",
+      "id": 3
+    },
+    {
+      "user_name": "jun",
+      "user_password": "123",
+      "id": 4
+    },
+    {
+      "user_name": "minji",
+      "user_password": "456",
+      "id": 5
+    },
+    {
+      "user_name": "minji",
+      "user_password": "456",
+      "id": 6
+    },
+    {
+      "user_name": "aaaa",
+      "user_password": "1234",
+      "id": 7
+    }
+  ]
+}

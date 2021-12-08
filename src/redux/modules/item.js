@@ -1,6 +1,6 @@
 import {createAction, handleActions} from 'redux-actions';
 import {produce} from 'immer';
-import api from '../api/items';
+
 
 //액션 타입
 
@@ -41,16 +41,6 @@ const initialItem = {
       totalPrice:0
     }
   ]
-}
-
-//thunk function
-export const _loadItem = () => async (dispatch, getState, {histosy})=> {
-  try {
-    const { data } = await apis.item_list();
-    dispatch(loadItem(data));
-    
-  } catch (e) {
-    
 }
 
 //reducer
