@@ -63,7 +63,8 @@ const ContentWrap = styled.div`
     position:relative;
     width:1220px;
     margin:0 auto;
-    border:1px solid #eee;  // 임시로 지정
+    *border:1px solid #eee;  // 임시로 지정
+    display:${(props)=> props.flex ? `${props.flex}`:""};
     text-align:${(props) => props.align};
 
 `;
@@ -71,7 +72,8 @@ const SignWrap = styled.div`
     position:relative;
     width:400px;
     margin:0 auto;
-    border:1px solid #eee;  // 임시로 지정
+    *border:1px solid #eee;  // 임시로 지정
+    display:${(props)=> props.flex ? `${props.flex}`:""};
     text-align:${(props) => props.align};
     padding: 100px 20px; 
 

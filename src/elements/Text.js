@@ -21,6 +21,7 @@ Text.defaultProps = {
     size: '18px',
     align:false,
     margin:false,
+    
 
 };
 
@@ -31,6 +32,7 @@ const P = styled.p`
     font-weight: ${(props) => (props.bold? "600" : "400")};
     text-align:${(props)=> props.align ? `${props.align}`:""};
     margin:${(props)=> props.margin ? `${props.margin}`:""};
+    word-break:keep-all;
 `;
 
 export default Text;
