@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import {Grid,Image,Text} from '../elements/index';
-import { useSelector,  } from "react-redux";
+import { useDispatch, useSelector,  } from "react-redux";
 import {history} from '../redux/configureStore';
+import { actionCreators as itemActions } from "../redux/modules/item";
 
 import Item from "../components/Item";
 import Rank from "../components/Rank";
@@ -9,15 +10,20 @@ import api from "../api/posts";
 
 const ItemList = (props) => {
     const item_list = useSelector((state)=> state.item.result)
+    const dispatch = useDispatch();
 
 
     React.useEffect(() => {
-        const Posts = async() => {
-            const response = await api.get('/posts');
-            console.log(response)
-        }
-        Posts()
-    })
+        //const Posts = async() => {
+        //    const response = await api.get('/posts');
+        //    console.log(response)
+        //}
+        //Posts();
+        
+            dispatch(itemActions.getItemNJ());
+        
+        
+    },[])
 
     
     return (
@@ -31,8 +37,10 @@ const ItemList = (props) => {
                    
                   <Grid  flex="flex;flex-wrap:wrap;justify-content:space-between;">
                    {
-                       item_list.map(rowData =>{
-                        return  <Item key={rowData.idx} {...rowData}  _onClick={()=>{history.push(`/item/${rowData.idx}`)}}/>
+                       item_list.map((p,idx) =>{
+                        return <Item key={idx} {...p}  _onClick={()=>{history.push(`/item/${idx}`)}}/>
+                            
+                        
                         
                        })
                    }

@@ -47,7 +47,7 @@ const ImageSmall = styled.div`
     background-size: cover;
 `
 const ImageMedium = styled.div`
-    width: 250px;
+    width: 100%;
     height: 175px;
     background-image: url("${(props) => props.src}");
     background-size: cover;

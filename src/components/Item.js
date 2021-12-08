@@ -8,10 +8,10 @@ const Item = (props) => {
   const {_onClick} = props;
   return(
     <>
-      <Grid width="auto" _onClick={_onClick} >
+      <Grid width="250px" _onClick={_onClick} >
         <Image shape="medium" src={props.thumbnail}/>
-        <Text align="left">{props.title}</Text>
-        <Text align="left">{props.price}</Text>
+        <Text align="left" margin="10px 0 0 5px">{props.title}</Text>
+        <Text align="left" margin="0 0 10px 5px">{props.percent}%</Text>
       </Grid>
     </>
   );
