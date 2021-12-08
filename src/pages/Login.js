@@ -5,6 +5,7 @@ import {getCookie, setCookie } from "../shared/Cookie";
 
 import {useDispatch} from "react-redux"
 import { actionCreators as userActions } from "../redux/modules/user";
+import api from "../api/posts";
 
 
 
@@ -27,7 +28,13 @@ const Login = (props) => {
   }
 
   const login = () => {
-    dispatch(userActions.loginNJ({user_name: "jun"}));
+    // dispatch(userActions.loginNJ({user_name: "jun"}));
+    api.post('/posts',
+    {user_name:"aaaa",
+     user_password:"1234"}
+    ).then(function (response) {
+      console.log(response)
+    })
   }
 
   return (

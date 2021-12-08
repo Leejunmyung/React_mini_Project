@@ -6,11 +6,19 @@ import {history} from '../redux/configureStore';
 
 import Item from "../components/Item";
 import Rank from "../components/Rank";
+import api from "../api/posts";
 
 const ItemList = (props) => {
     const item_list = useSelector((state)=> state.item.result)
+    
 
-
+    React.useEffect(() => {
+        const Posts = async() => {
+            const response = await api.get('/posts');
+            console.log(response)
+        }
+        Posts()
+    })
 
     
     return (
