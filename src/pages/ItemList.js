@@ -7,22 +7,23 @@ import { actionCreators as itemActions } from "../redux/modules/item";
 import Item from "../components/Item";
 import Rank from "../components/Rank";
 import api from "../api/posts";
+import { actionCreators as itemActions } from "../redux/modules/item";
+import { useDispatch } from "react-redux";
 
 const ItemList = (props) => {
     const item_list = useSelector((state)=> state.item.result)
     const dispatch = useDispatch();
 
+    console.log(item_list)
+
 
     React.useEffect(() => {
-        //const Posts = async() => {
-        //    const response = await api.get('/posts');
-        //    console.log(response)
-        //}
-        //Posts();
-        
-            dispatch(itemActions.getItemNJ());
-        
-        
+        // const Posts = async() => {
+        //     const response = await api.get('/result');
+        //     console.log(response)
+        // }
+        // Posts()
+        dispatch(itemActions.getItemNJ())
     },[])
 
     
@@ -38,10 +39,7 @@ const ItemList = (props) => {
                   <Grid  flex="flex;flex-wrap:wrap;justify-content:space-between;">
                    {
                        item_list.map((p,idx) =>{
-                        return <Item key={idx} {...p}  _onClick={()=>{history.push(`/item/${idx}`)}}/>
-                            
-                        
-                        
+                        return  <Item key={idx} {...p}  _onClick={()=>{history.push(`/item/${idx}`)}}/>
                        })
                    }
 

@@ -1,5 +1,6 @@
 import {createAction, handleActions} from 'redux-actions';
 import {produce} from 'immer';
+import api from "../../api/posts";
 
 import api from '../../api/posts';
 
@@ -15,6 +16,7 @@ const addItem = createAction(ADD_ITEM, (item)=>({item}));
 
 
 const initialState = {
+
   result : [],
 }
 
@@ -25,16 +27,19 @@ const getItemNJ = (item_list) => {
     dispatch(loadItem(item_list.data));
     
   }
+
 }
 
-const addItemNJ = ( item ) => {
-  return async function (dispatch, useState, {history}){
-    const item_data = await api.post("/reault", item);
-    dispatch(addItem(item_data));
+const addItemNJ = (item ) => {
+  return async function (dispatch, getState, {history}) {
     
+    const item_data = await api.post("/result", item)
+    dispatch(addItem(item_data))
   }
 
 }
+
+
 
 //reducer
 export default handleActions(
