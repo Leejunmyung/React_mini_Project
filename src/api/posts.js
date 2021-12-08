@@ -4,4 +4,4 @@ const posts =  axios.create({
     baseURL: "http://localhost:3001"
 })
 
-export default posts
+export default posts;

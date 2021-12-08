@@ -22,61 +22,8 @@ const initialState = {
       targetPrice: 5000000,
       content:"이 상품을 구매하기 위해서는 많은 분들의 펀딩이 필요합니다!",
       totalPrice:0
-    },
-    {
-      title: "2[에코펀딩] 첫 번째 리덕스 상품!",
-      images: "https://mean0images.s3.ap-northeast-2.amazonaws.com/4.jpeg",
-      thumbnail:"https://images.unsplash.com/photo-1551410224-699683e15636?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80",
-      price:70000,
-      targetPrice: 5000000,
-      content:"이 상품을 구매하기 위해서는 많은 분들의 펀딩이 필요합니다!",
-      totalPrice:0
-    },
-    {
-      title: "3[에코펀딩] 첫 번째 리덕스 상품!",
-      images: "https://mean0images.s3.ap-northeast-2.amazonaws.com/4.jpeg",
-      thumbnail:"https://images.unsplash.com/photo-1567653418876-5bb0e566e1c2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDR8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-      price:70000,
-      targetPrice: 5000000,
-      content:"이 상품을 구매하기 위해서는 많은 분들의 펀딩이 필요합니다!",
-      totalPrice:0
-    },
-    {
-      title: "4[에코펀딩] 첫 번째 리덕스 상품!",
-      images: "https://mean0images.s3.ap-northeast-2.amazonaws.com/4.jpeg",
-      thumbnail:"https://images.unsplash.com/photo-1529245856630-f4853233d2ea?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-      price:70000,
-      targetPrice: 5000000,
-      content:"이 상품을 구매하기 위해서는 많은 분들의 펀딩이 필요합니다!",
-      totalPrice:0
-    },
-    {
-      title: "5[에코펀딩] 첫 번째 리덕스 상품!",
-      images: "https://mean0images.s3.ap-northeast-2.amazonaws.com/4.jpeg",
-      thumbnail:"https://images.unsplash.com/photo-1559181567-c3190ca9959b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80",
-      price:70000,
-      targetPrice: 5000000,
-      content:"이 상품을 구매하기 위해서는 많은 분들의 펀딩이 필요합니다!",
-      totalPrice:0
-    },
-    {
-      title: "6[에코펀딩] 첫 번째 리덕스 상품!",
-      images: "https://mean0images.s3.ap-northeast-2.amazonaws.com/4.jpeg",
-      thumbnail:"https://images.unsplash.com/photo-1627483262268-9c2b5b2834b5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-      price:70000,
-      targetPrice: 5000000,
-      content:"이 상품을 구매하기 위해서는 많은 분들의 펀딩이 필요합니다!",
-      totalPrice:0
-    },
-    {
-      title: "7[에코펀딩] 첫 번째 리덕스 상품!",
-      images: "https://mean0images.s3.ap-northeast-2.amazonaws.com/4.jpeg",
-      thumbnail:"https://images.unsplash.com/photo-1559703248-dcaaec9fab78?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80",
-      price:70000,
-      targetPrice: 5000000,
-      content:"이 상품을 구매하기 위해서는 많은 분들의 펀딩이 필요합니다!",
-      totalPrice:0
-    },
+    }
+
 
     
   ]
@@ -95,8 +42,6 @@ const initialItem = {
     }
   ]
 }
-
-
 
 //reducer
 export default handleActions(
