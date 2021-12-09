@@ -15,7 +15,7 @@ const PostDetail = (props) => {
     const item_list = useSelector((store)=> store.item.result);
     
     const item_idx = item_list.findIndex(p => p.id === itemId);
-    const item = item_list[itemId];
+    const item = item_list[item_idx];
     React.useEffect(() => {
 
         if(item){
@@ -24,16 +24,16 @@ const PostDetail = (props) => {
         dispatch(itemActions.getItemNJ(itemId));
     }, []);
 
-    // console.log("item_list:",item_list);
-    // console.log("item_idx:",item_idx, itemId);
-    // console.log("item:",item);
+    console.log("item_list:",item_list);
+    console.log("item_idx:",item_idx, itemId);
+    console.log("item:",item);
     
     return (
         <>
             <Image shape="full"></Image>
             <Grid contentWrap>
                 <Grid margin="100px 0 0 0" flex="flex">
-                    <Image shape="big"></Image>
+                    <Image src={"http://" + item.thumbnail} shape="big"></Image>
                     <Grid  width="380px" margin="0 0 0 20px ">
                         <Text size="21px;" align="left" bold >{itemId}. 달성도: %</Text>
                         <Line/>

@@ -31,8 +31,13 @@ const initialItem = {
 //미들웨어
 const getItemNJ = () => {
   return async function (dispatch, useState, {history}){
-    await api.get("/posts").then(function(response){
-      dispatch(loadItem(response.data));
+    await api.get("/", {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(function(response){
+      console.log(response)
+      dispatch(loadItem(response.data.result));
     })
     
     
@@ -51,7 +56,7 @@ const getItemNJ = () => {
 // 		}
 // 	};
 
-const addItemNJ = ( title, price, targetPrice, textarea, file) => {
+const addItemNJ = ( title, price, targetPrice, textarea, file, file2) => {
   return async function (dispatch, getState, {history}) {
     const form = new FormData()
     form.append('title', title)
@@ -59,6 +64,7 @@ const addItemNJ = ( title, price, targetPrice, textarea, file) => {
     form.append('targetPrice', targetPrice)
     form.append('content', textarea)
     form.append('thumbnail', file)
+    form.append('images', file2 )
     // for (var value of form.values()){
     //   console.log(value)
     // }
@@ -72,7 +78,11 @@ const addItemNJ = ( title, price, targetPrice, textarea, file) => {
     //   content: textarea,
     //   thumbnail: file,
       // }
-    await api.post("/posts",form).then(function(response){
+    await api.post("/",form,{
+      headers: { Authorization: 
+        `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxYjE4NmUyNjhlOTg3YzM2NDc1M2FiZCIsImlhdCI6MTYzOTAzNjU3NSwiZXhwIjoxNjM5MTIyOTc1fQ.57Du0UotdNTjUOv_iCI-tY3E4iQ1i99u3x1NhH-1Bjs` }
+    }
+    ).then(function(response){
       console.log(response)
     }).catch(error => {
       console.log(error.message);
