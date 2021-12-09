@@ -31,7 +31,7 @@ const initialItem = {
 //미들웨어
 const getItemNJ = () => {
   return async function (dispatch, useState, {history}){
-    await api.get("/", {
+    await api.get("/api/item", {
       headers: {
         'Content-Type': 'application/json'
       }
@@ -78,9 +78,9 @@ const addItemNJ = ( title, price, targetPrice, textarea, file, file2) => {
     //   content: textarea,
     //   thumbnail: file,
       // }
-    await api.post("/",form,{
+    await api.post("/api/item",form,{
       headers: { Authorization: 
-        `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxYjE4NmUyNjhlOTg3YzM2NDc1M2FiZCIsImlhdCI6MTYzOTAzNjU3NSwiZXhwIjoxNjM5MTIyOTc1fQ.57Du0UotdNTjUOv_iCI-tY3E4iQ1i99u3x1NhH-1Bjs` }
+        `Bearer eyJhbGciOiJIUzI1NiIsInR5cI6IkpXVCJ9.eyJpZCI6IjYxYjE4NmUyNjhlOTg3YzM2NDc1M2FiZCIsImlhdCI6MTYzOTAzNjU3NSwiZXhwIjoxNjM5MTIyOTc1fQ.57Du0UotdNTjUOv_iCI-tY3E4iQ1i99u3x1NhH-1Bjs` }
     }
     ).then(function(response){
       console.log(response)
