@@ -20,7 +20,7 @@ const Item = (props) => {
 
 Item.defaultProps = {
   
-    title: "[에코펀딩] 첫 번째 리덕스 상품!",
+    title: "[에코펀딩] defaultProps 값입니다!",
     images: "https://mean0images.s3.ap-northeast-2.amazonaws.com/4.jpeg",
     thumbnail:"https://images.unsplash.com/photo-1627483262268-9c2b5b2834b5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
     price:70000,
