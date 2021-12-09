@@ -12,14 +12,13 @@ const Signup = (props) => {
     const [pwd, setPwd] = React.useState('');
     const [pwd_check, setPwdCheck] = React.useState('');
 
-    const conflict_check = useSelector((state)=>state);
-    console.log("conflict_check:", conflict_check);
+    const id_check = useSelector((state)=>state.user.id_check);
+    const nick_check = useSelector((state)=>state.user.nick_check);
+    console.log("both_check:", id_check, nick_check);
 
     const id_conflict = () => {
       dispatch(userActions.id_conflictNJ(id));
       
-      
-     
     };
 
     const nick_conflict = () => {
@@ -37,9 +36,22 @@ const Signup = (props) => {
         window.alert("비밀번호가 일치하지 않습니다!");
         return;
       }
+
+      if(id_check =="true" && nick_check == "true"){
+        window.alert("회원가입 완료!")
+        dispatch(userActions.signupNJ(id, nickName, pwd ));
+      }else{
+        window.alert("아이디 & 닉네임 중복확인을 해주세요")
+      }
   
-      dispatch(userActions.signupNJ(id, nickName, pwd ));
+      
     }
+
+    // if(id_check && nick_check){
+    //   return(
+    //     <Button text="회원가입" _onClick={signup}></Button>
+    //   );
+    // };
 
     return (
         <>
@@ -65,6 +77,7 @@ const Signup = (props) => {
         <Input type="password" placeholder="비밀번호 확인"
         value={pwd_check} _onChange={(e) => {setPwdCheck(e.target.value)}} ></Input>
         <Button text="회원가입" _onClick={signup}></Button>
+        
       </Grid>
     </>
     );
