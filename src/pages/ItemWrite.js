@@ -8,6 +8,7 @@ const PostWrite = (props) => {
     const dispatch = useDispatch();
     const history = useHistory();
     const fileInput = React.useRef();
+    const fileInput2 = React.useRef();
     const [title, setTitles] = React.useState("");
     const [price, setPrices] = React.useState("");
     const [targetPrice, settargetPrice] = React.useState("");
@@ -41,6 +42,20 @@ const PostWrite = (props) => {
     
         console.log(reader.result);
       };
+      const selectFile2 = (e) => { 
+        console.log(e);
+        console.log(e.target.files);   
+        console.log(e.target.files[0]);
+    
+        console.log(fileInput.current.files[0]);
+    
+        const reader = new FileReader();
+        const file = fileInput.current.files[0];
+    
+        reader.readAsDataURL(file);
+    
+        console.log(reader.result);
+      };
 
 
 
@@ -49,7 +64,7 @@ const PostWrite = (props) => {
         const addItem = () => {
             console.log("게시글 작성버튼 누름!")
             
-            dispatch(itemActions.addItemNJ(title, price, targetPrice, textarea, fileInput.current.files[0]));
+            dispatch(itemActions.addItemNJ(title, price, targetPrice, textarea, fileInput.current.files[0], fileInput2.current.files[0]));
             
         }
     
@@ -78,6 +93,7 @@ const PostWrite = (props) => {
                 <Input value={price} _onChange={change_price} InputTitle label="상품 금액*" placeholder="하나의 상품 금액을 입력하세요."  margin="40px 0 0 0"></Input>
                 <Input value={targetPrice} _onChange={change_goal} InputTitle label="목표 금액*" placeholder="상품금액 10배이상을 지정해주세요." margin="40px 0 0 0"></Input>
                 <input ref={fileInput} type="file" onChange={selectFile}/>
+                <input ref={fileInput2} type="file" onChange={selectFile2}/>
                 <Input value={textarea} _onChange={change_text} textarea label="프로젝트 상세 내용*" placeholder="프로젝트 상세 내용을 입력하세요." margin="40px 0 15px 0"></Input>
                 
                 <Button text="등록하기" _onClick={()=>{

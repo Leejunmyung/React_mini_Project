@@ -35,7 +35,7 @@ const Image = (props) => {
 
 Image.defaultProps = {
     shape: "medium",
-    src: "https://images.unsplash.com/photo-1627483262769-04d0a1401487?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    src: "http://3.35.140.5/gobchang-1639031423467.jpg",
     width: "100%",
     height: "170px",
 };
