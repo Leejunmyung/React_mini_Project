@@ -22,7 +22,12 @@ const ItemList = (props) => {
         //     console.log(response)
         // }
         // Posts()
-        dispatch(getItemNJ());
+        if(item_list.length<2){
+            dispatch(getItemNJ());
+        }
+            
+        
+       
     },[])
 
     
@@ -38,7 +43,7 @@ const ItemList = (props) => {
                   <Grid  flex="flex;flex-wrap:wrap;justify-content:space-between;">
                    {
                        item_list.map((p,idx) =>{
-                        return  <Item key={idx} {...p}  _onClick={()=>{history.push(`/item/${idx}`)}}/>
+                        return  <Item key={p.id} {...p}  _onClick={()=>{history.push(`/item/${idx}`)}}/>
                        })
                    }
 
