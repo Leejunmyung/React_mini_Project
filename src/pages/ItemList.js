@@ -14,7 +14,6 @@ const ItemList = (props) => {
 
     console.log(item_list)
 
-
     React.useEffect(() => {
         // const Posts = async() => {
         //     const response = await api.get('/result');
