@@ -29,55 +29,55 @@ const initialItem = {
 }
 
 //미들웨어
-// const getItemNJ = (item_list) => {
-//   return async function (dispatch, useState, {history}){
-//     const item_list = await api.get("/result");
-//     dispatch(loadItem(item_list.data));
+const getItemNJ = () => {
+  return async function (dispatch, useState, {history}){
+    await api.get("/posts").then(function(response){
+      dispatch(loadItem(response.data));
+    })
     
-//   }
+    
+  }
 
-// }
+}
 
-export const getItemNJ = () =>
-	async (dispatch, getState, { history }) => {
-		try {
-			const { data } = await api.get("/posts");
-			dispatch(loadItem(data));
+// export const getItemNJ = () =>
+// 	async (dispatch, getState, { history }) => {
+// 		try {
+// 			const { data } = await api.get("/posts");
+// 			dispatch(loadItem(data));
 		
-		} catch (e) {
-			// console.log(`아티클 조회 오류 발생!${e}`);
-		}
-	};
+// 		} catch (e) {
+// 			// console.log(`아티클 조회 오류 발생!${e}`);
+// 		}
+// 	};
 
 const addItemNJ = ( title, price, targetPrice, textarea, file) => {
   return async function (dispatch, getState, {history}) {
-    const newItem = {
-      title: title,
-      price: price,
-      targetPrice: targetPrice,
-      content: textarea,
-      thumbnail: file,
-      
-
-    }
-    console.log("얜가",newItem)
-
-    await axios.post("http://localhost:3001/posts",newItem).then(function(response){
+    const form = new FormData()
+    form.append('title', title)
+    form.append('price', price)
+    form.append('targetPrice', targetPrice)
+    form.append('content', textarea)
+    form.append('thumbnail', file)
+    // for (var value of form.values()){
+    //   console.log(value)
+    // }
+    // const file_data = file
+    // const reader = new FileReader();
+    // console.log(reader.readAsDataURL(file))
+    // const newItem = {
+    //   title: title,
+    //   price: price,
+    //   targetPrice: targetPrice,
+    //   content: textarea,
+    //   thumbnail: file,
+      // }
+    await api.post("/posts",form).then(function(response){
       console.log(response)
     }).catch(error => {
       console.log(error.message);
     });
-    // const postItem = await api.post("/result", newItem);
-    
-    // postItem.then(function (response) {
-    //   console.log(response)
-    // })
-    // dispatch(addItem({item_data}));
-    // console.log("얜가",item)
-    
-    // await api.post("/result", item).then(function (response){
-    //   console.log("response: ",response)
-    // })
+  
 
   }
 
@@ -88,7 +88,8 @@ const addItemNJ = ( title, price, targetPrice, textarea, file) => {
 export default handleActions(
   {
     [LOAD_ITEM] : (state, action) => produce(state,(draft) => {
-      draft.result.push(...action.payload.item_list);
+      // console.log(draft, draft.result)
+      draft.result = action.payload.item_list;
 
     }),
     [ADD_ITEM] : (state, action) => produce(state,(draft) => {
