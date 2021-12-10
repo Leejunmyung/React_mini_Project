@@ -13,8 +13,10 @@ const PostDetail = (props) => {
     const dispatch = useDispatch();
 
     const item_list = useSelector((store)=> store.item.result);
+   
     
     const item_idx = item_list.findIndex(p => p.id === itemId);
+  
     const item = item_list[item_idx];
 
     const funding = () => {

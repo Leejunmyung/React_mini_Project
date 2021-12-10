@@ -6,13 +6,15 @@ import {history} from '../redux/configureStore';
 import Item from "../components/Item";
 import Rank from "../components/Rank";
 import api from "../api/posts";
+
 import { actionCreators as itemActions } from "../redux/modules/item";
 
 const ItemList = (props) => {
     const item_list = useSelector((state)=> state.item.result)
+    const rank_list = useSelector((state)=> state.item.rank_item)
     const dispatch = useDispatch();
-    
 
+    
 
     React.useEffect(() => {
         // const Posts = async() => {
@@ -24,6 +26,7 @@ const ItemList = (props) => {
         if(item_list.length<2){
             dispatch(itemActions.getItemNJ());
         }
+        dispatch(itemActions.getRankNJ());
 
     },[])
 
@@ -40,17 +43,24 @@ const ItemList = (props) => {
                   <Grid  flex="flex;flex-wrap:wrap;justify-content:space-between;">
                    {
                        item_list.map((p,idx) =>{
-                        return  <Item key={p.id} {...p}  _onClick={()=>{history.push(`/item/${p.id}`)}}/>
+                        return  <Item  key={p.id} {...p}  _onClick={()=>{history.push(`/item/${p.id}`)}}/>
                        })
                    }
 
                   </Grid>
                   <Grid width="auto">
-                     <Rank/>
-                     <Rank/>
-                     <Rank/>
-                     <Rank/>
-                     <Rank/>
+                    {
+                        rank_list.map((p,idx)=> {
+
+                            return(
+                                <>
+                                <Text><b>{idx+1}</b></Text>
+                                <Rank key={p.id} {...p}  _onClick={()=>{history.push(`/item/${p.id}`)}}/>
+                                </>
+                               
+                            );
+                        })
+                    }
                   </Grid>
 
                </Grid>

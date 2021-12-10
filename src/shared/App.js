@@ -9,6 +9,7 @@ import Signup from "../pages/Signup";
 import ItemWrite from "../pages/ItemWrite";
 import ItemDetail from "../pages/ItemDetail";
 
+
 import { ConnectedRouter } from "connected-react-router";
 import { history } from "../redux/configureStore";
 
@@ -26,6 +27,8 @@ function App() {
         <Route path="/write" exact component={ItemWrite} />
         <Route path="/write/:itemId" exact component={ItemWrite} />
         <Route path="/item/:itemId" exact component={ItemDetail} />
+
+
       </ConnectedRouter>
     </>
   );
