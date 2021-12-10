@@ -2,6 +2,7 @@ import { createAction, handleActions } from "redux-actions";
 import { produce } from "immer";
 
 import { actionCreators as itemActions } from "./item";
+import api from "../../api/posts";
 
 const SET_COMMENT = "SET_COMMENT";
 const ADD_COMMENT = "ADD_COMMENT";
@@ -23,14 +24,22 @@ const initialState = {
   list: {},
   is_loading: false,
 };
-const addCommentNJ = (item_id, contents) => {
-  return function (dispatch, getState, { history }) {
-    
+const addCommentNJ = (itemId, comment) => {
+  return async function (dispatch, getState, { history }) {
+    const token = localStorage.getItem('token')
+    await api.post(`/api/item/${itemId}/comment`, {'comment': comment},{
+      headers: { 
+        Authorization: `Bearer ${token}`}
+    }).then(function(response){
+      console.log("addCommentNJ",response)
+    })
   };
 };
-const getCommentNJ = (item_id = null) => {
-  return function (dispatch, getState, { history }) {
-    
+const getCommentNJ = (itemId) => {
+  return async function (dispatch, getState, { history }) {
+    await api.get(`/api/item/${itemId}/comment`).then(function(response){
+      console.log("getCommentNJ",response)
+    })
   };
 };
 

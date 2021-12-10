@@ -32,7 +32,7 @@ const Input = (props) => {
         return (
             <Grid>
                 <Text size="16px"  align="left" >{label}</Text>
-                <Textarea rows="10" {...styles} type={type} placeholder={placeholder} value={value} onChange={_onChange}></Textarea>
+                <Textarea rows="5" {...styles} type={type} placeholder={placeholder} value={value} onChange={_onChange}></Textarea>
     
                 
             </Grid>
@@ -97,6 +97,9 @@ const InputBox = styled.input`
 
 const Textarea = styled.textarea`
 width:100%;
+padding:10px;
+box-sizing:border-box;
+font-size:18px;
 
 `;
 
