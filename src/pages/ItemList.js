@@ -11,6 +11,7 @@ import { actionCreators as itemActions } from "../redux/modules/item";
 const ItemList = (props) => {
     const item_list = useSelector((state)=> state.item.result)
     const dispatch = useDispatch();
+    
 
 
     React.useEffect(() => {
@@ -23,9 +24,7 @@ const ItemList = (props) => {
         if(item_list.length<2){
             dispatch(itemActions.getItemNJ());
         }
-            
-        
-       
+
     },[])
 
     

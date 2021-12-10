@@ -37,7 +37,9 @@ const loginNJ = (id, pwd) => {
             localStorage.setItem('token', response.data.token);
             dispatch(logIn(response.data.nickname))
         })
-        history.push('/');
+        
+        window.location.href="/";
+
     };
 };
 
@@ -118,13 +120,11 @@ export default handleActions(
         [LOG_IN]: (state, action) =>
             produce(state, (draft) => {
                 draft.nickname = action.payload.user
-                draft.is_login = true
             }),
         [LOG_OUT]: (state, action) =>
             produce(state, (draft) => {
-                deleteCookie("is_login");
-                draft.user = null;
-                draft.is_login = false;
+                localStorage.removeItem("nickname")
+                localStorage.removeItem("token")
             }),
         [GET_USER]: (state, action) => produce(state, (draft) => {}),
     },

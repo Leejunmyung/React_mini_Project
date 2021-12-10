@@ -29,6 +29,7 @@ const Login = (props) => {
 
   const login = () => {
    dispatch(userActions.loginNJ(id, pwd));
+   
     
   }
 
@@ -42,8 +43,9 @@ const Login = (props) => {
         <Input value={id} _onChange={changeId} placeholder="아이디"></Input>
         <Input value={pwd} _onChange={changePwd} type="password" placeholder="비밀번호(영문,숫자,특수 문자 포함 8자 이상)"></Input>
         <Button _onClick={() => {
-          console.log("로그인했어!")
+          // console.log("로그인했어!")
           login();
+          
         }} text="로그인"></Button>
 
       </Grid>

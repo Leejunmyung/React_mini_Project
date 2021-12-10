@@ -8,10 +8,14 @@ import {history} from "../redux/configureStore";
 
 const Header = (props) => {
   const dispatch = useDispatch();
-  const is_login = useSelector((state) => state.user.is_login);
-  const user = useSelector((state)=>state.user.nickname);
+  //is_login 필요없으니 나중에 다 지울것 user.js 에서도 필요없음
+  // const is_login = useSelector((state) => state.user.is_login);
+  // const user = useSelector((state)=>state.user.nickname);
+  const local_token = localStorage.getItem('token')
 
-  if(is_login) {
+
+  
+  if(local_token) {
     return(
       <Grid contentWrap flex="flex;justify-content:space-between;align-items:center;">
         <Grid  width="auto" _onClick={()=>{history.push('/')}}>
@@ -21,7 +25,8 @@ const Header = (props) => {
             <Button width="200px" margin="0 10px" text="내정보"></Button>
             <Button width="200px" margin="0 10px" text="펀딩 등록하기" _onClick={()=>{history.push('/write/a');}}></Button>
             <Button width="200px" margin="0 10px" text="로그아웃" _onClick={()=>{
-              dispatch(userActions.logOut({}))
+              dispatch(userActions.logOut());
+              window.location.reload();
             }}></Button>
         </Grid>
     </Grid>

@@ -16,6 +16,11 @@ const PostDetail = (props) => {
     
     const item_idx = item_list.findIndex(p => p.id === itemId);
     const item = item_list[item_idx];
+
+    const funding = () => {
+        dispatch(itemActions.addFundingNJ(itemId, item.price ))
+    };
+
     React.useEffect(() => {
 
         if(item){
@@ -41,7 +46,7 @@ const PostDetail = (props) => {
                         <Text size="21px;" align="left"  >상품 금액: {item.price}</Text>
                         <Text size="21px;" align="left"  >작성 날짜: {item.date}</Text>
 
-                        <Button text="펀딩하기"></Button>
+                        <Button text="펀딩하기" _onClick={funding}></Button>
                     </Grid>
                 </Grid>
 
