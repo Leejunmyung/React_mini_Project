@@ -11,7 +11,7 @@ const Header = (props) => {
   //is_login 필요없으니 나중에 다 지울것 user.js 에서도 필요없음
   // const is_login = useSelector((state) => state.user.is_login);
   // const user = useSelector((state)=>state.user.nickname);
-  const local_token = localStorage.getItem('token')
+  const local_token = localStorage.getItem('token');
 
 
   

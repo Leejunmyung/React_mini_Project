@@ -87,8 +87,8 @@ const PostWrite = (props) => {
 
             <Grid>
                 <Input value={title} _onChange={change_title} InputTitle label="프로젝트 제목*" placeholder="프로젝트 제목을 입력하세요." margin="40px 0 0 0"></Input>
-                <Input value={price} _onChange={change_price} InputTitle label="상품 금액*" placeholder="하나의 상품 금액을 입력하세요."  margin="40px 0 0 0"></Input>
-                <Input value={targetPrice} _onChange={change_goal} InputTitle label="목표 금액*" placeholder="상품금액 10배이상을 지정해주세요." margin="40px 0 0 0"></Input>
+                <Input type ="number" value={price} _onChange={change_price} InputTitle label="상품 금액*" placeholder="하나의 상품 금액을 입력하세요."  margin="40px 0 0 0"></Input>
+                <Input type ="number" value={targetPrice} _onChange={change_goal} InputTitle label="목표 금액*" placeholder="상품금액 10배이상을 지정해주세요." margin="40px 0 0 0"></Input>
                 <input ref={fileInput} type="file" onChange={selectFile}/>
                 <input ref={fileInput2} type="file" onChange={selectFile2}/>
                 <Input value={textarea} _onChange={change_text} textarea label="프로젝트 상세 내용*" placeholder="프로젝트 상세 내용을 입력하세요." margin="40px 0 15px 0"></Input>
