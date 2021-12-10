@@ -12,7 +12,6 @@ const ItemList = (props) => {
     const item_list = useSelector((state)=> state.item.result)
     const dispatch = useDispatch();
 
-    console.log(item_list)
 
     React.useEffect(() => {
         // const Posts = async() => {

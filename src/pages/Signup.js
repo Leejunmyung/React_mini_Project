@@ -63,11 +63,13 @@ const Signup = (props) => {
             <Button _onClick={id_conflict} position="absolute; right:5px; top:48px" width="80px" text="중복확인"></Button>
             <Input value={id} placeholder="로그인 할 아이디" label="아이디" padding ="5px 0px 5px 10px"
             _onChange={(e) => {setId(e.target.value)}}></Input>
+            {id_check == "true" && <span>중복확인되었습니다.</span>}
         </Grid>
         <Grid position="relative" >
             <Button _onClick={nick_conflict} position="absolute; right:5px; top:48px" width="80px" text="중복확인"></Button>
             <Input value={nickName} placeholder="두 글자 이상 닉네임" label="닉네임" padding ="5px 0px 5px 10px"
             _onChange={(e) => {setnickName(e.target.value)}}></Input>
+            {nick_check == "true" && <span>중복확인되었습니다.</span>}
             
         </Grid>
        
