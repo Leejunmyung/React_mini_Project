@@ -43,7 +43,9 @@ const ItemList = (props) => {
                   <Grid  flex="flex;flex-wrap:wrap;justify-content:space-between;">
                    {
                        item_list.map((p,idx) =>{
-                        return  <Item  key={p.id} {...p}  _onClick={()=>{history.push(`/item/${p.id}`)}}/>
+                        return  <Item  key={p.id} {...p}  _onClick={()=>{history.push({
+                            pathname: `/item/${p.id}`
+                        }); window.location.reload();}}/>
                        })
                    }
 

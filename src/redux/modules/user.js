@@ -36,9 +36,14 @@ const loginNJ = (id, pwd) => {
             localStorage.setItem('nickname', response.data.nickname);
             localStorage.setItem('token', response.data.token);
             dispatch(logIn(response.data.nickname))
+            window.location.href="/";
+        }).catch((err)=> {
+            const err_result = err.response.data.message;
+           
+            window.alert(err_result)
         })
         
-        window.location.href="/";
+         
 
     };
 };
