@@ -58,7 +58,6 @@ const PostWrite = (props) => {
       };
 
 
-
     //////
 
         const addItem = () => {
@@ -67,8 +66,6 @@ const PostWrite = (props) => {
             dispatch(itemActions.addItemNJ(title, price, targetPrice, textarea, fileInput.current.files[0], fileInput2.current.files[0]));
             
         }
-    
-   
     
 
     return (
@@ -99,6 +96,7 @@ const PostWrite = (props) => {
                 <Button text="등록하기" _onClick={()=>{
                     addItem();
                     history.push('/');
+                    window.location.reload();
                     }}></Button>
             </Grid>
             

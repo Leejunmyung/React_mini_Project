@@ -29,6 +29,16 @@ const initialItem = {
 }
 
 //미들웨어
+
+const addFundingNJ = (itemId, item_price) => {
+  return async function (dispatch, useState, {history}){
+    console.log(item_price, itemId)
+    await api.put(`/api/item/${itemId}/funding`,item_price).then(function(response){
+      console.log("item response",response)
+    });
+  };
+};
+
 const getItemNJ = () => {
   return async function (dispatch, useState, {history}){
     await api.get("/api/item", {
@@ -45,42 +55,24 @@ const getItemNJ = () => {
 
 }
 
-// export const getItemNJ = () =>
-// 	async (dispatch, getState, { history }) => {
-// 		try {
-// 			const { data } = await api.get("/posts");
-// 			dispatch(loadItem(data));
-		
-// 		} catch (e) {
-// 			// console.log(`아티클 조회 오류 발생!${e}`);
-// 		}
-// 	};
 
 const addItemNJ = ( title, price, targetPrice, textarea, file, file2) => {
   return async function (dispatch, getState, {history}) {
     const form = new FormData()
+    const nickname = localStorage.getItem('nickname');
+    const token = localStorage.getItem('token');
+
     form.append('title', title)
     form.append('price', price)
     form.append('targetPrice', targetPrice)
     form.append('content', textarea)
     form.append('thumbnail', file)
     form.append('images', file2 )
-    // for (var value of form.values()){
-    //   console.log(value)
-    // }
-    // const file_data = file
-    // const reader = new FileReader();
-    // console.log(reader.readAsDataURL(file))
-    // const newItem = {
-    //   title: title,
-    //   price: price,
-    //   targetPrice: targetPrice,
-    //   content: textarea,
-    //   thumbnail: file,
-      // }
+    
+    
     await api.post("/api/item",form,{
       headers: { Authorization: 
-        `Bearer eyJhbGciOiJIUzI1NiIsInR5cI6IkpXVCJ9.eyJpZCI6IjYxYjE4NmUyNjhlOTg3YzM2NDc1M2FiZCIsImlhdCI6MTYzOTAzNjU3NSwiZXhwIjoxNjM5MTIyOTc1fQ.57Du0UotdNTjUOv_iCI-tY3E4iQ1i99u3x1NhH-1Bjs` }
+        `Bearer ${token}` }
     }
     ).then(function(response){
       console.log(response)
@@ -117,6 +109,7 @@ const actionCreators = {
   addItem,
   addItemNJ,
   getItemNJ,
+  addFundingNJ,
   
 }
 
