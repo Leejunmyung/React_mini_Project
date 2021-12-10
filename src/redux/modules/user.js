@@ -5,18 +5,20 @@ import api from "../../api/posts";
 
 
 const LOG_OUT = "LOG_OUT";
+const LOG_IN = "LOG_IN";
 const GET_USER = "GET_USER";
 const ID_CHECK = "ID_CHECK";
 const NICK_CHECK = "NICK_CHECK";
 
 
+const logIn = createAction(LOG_IN, (user) => ({user}));
 const logOut = createAction(LOG_OUT, (user) => ({user}));
 const getUser = createAction(GET_USER, (user) => ({user}));
 const idCheck = createAction(ID_CHECK, (result) => ({result}));
 const nickCheck = createAction(NICK_CHECK, (result) => ({result}));
 
 const initialState = {  
-    user: null,
+    nickname: null,
     is_login: false,
     id_check: null,
     nick_check: null,
@@ -24,9 +26,17 @@ const initialState = {
 
 
 //미들웨어
-const loginNJ = (user) => {
-    return function (dispatch, getState, {history}){
-        console.log(history);
+const loginNJ = (id, pwd) => {
+    return async function (dispatch, getState, {history}){
+        const user = {
+            loginId: id,
+            password: pwd
+        }
+        await api.post("/api/auth/login",user).then(function(response){
+            localStorage.setItem('nickname', response.data.nickname);
+            localStorage.setItem('token', response.data.token);
+            dispatch(logIn(response.data.nickname))
+        })
         history.push('/');
     };
 };
@@ -105,6 +115,11 @@ export default handleActions(
                 // console.log(action.payload.result.data.result, draft.is_check[0])
                 draft.nick_check = action.payload.result.data.result
         }),
+        [LOG_IN]: (state, action) =>
+            produce(state, (draft) => {
+                draft.nickname = action.payload.user
+                draft.is_login = true
+            }),
         [LOG_OUT]: (state, action) =>
             produce(state, (draft) => {
                 deleteCookie("is_login");
@@ -120,6 +135,7 @@ const actionCreators = {
     nickCheck,
     idCheck,
     getUser,
+    logIn,
     logOut,
     loginNJ,
     signupNJ,
