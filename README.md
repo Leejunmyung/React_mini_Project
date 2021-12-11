@@ -14,11 +14,14 @@
 > 🔗 개발 노션 : [https://www.notion.so/joo-page/1-50891e8907b44b24868f73df72692cd8](https://www.notion.so/joo-page/1-50891e8907b44b24868f73df72692cd8)
 > 
 <br>
+
 ## 🥇 Developers
+
 - **Back-end**
   - 김주영
   - 김금동
   - 전익현
+  - 
 - **Front-end**
   - 서민지
   - 이준명
