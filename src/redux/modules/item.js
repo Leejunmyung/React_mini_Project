@@ -61,7 +61,7 @@ const addFundingNJ = (itemId, item_price) => {
         itemId: itemId }
     }).then(function(response){
       window.alert("펀딩이 완료되었습니다");
-      
+      window.location.reload(`/item/:${itemId}`)
     }).catch(err => {
       window.alert(err.response.data.errorMessage)
       history.push('/login');

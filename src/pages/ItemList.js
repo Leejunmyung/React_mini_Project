@@ -64,7 +64,7 @@ const ItemList = (props) => {
                 </Grid>
 
                 <Grid width="400px">
-                    <Text mont align="left" size="32px" margin="86px 0 0 0" bold >LANK</Text>
+                    <Text mont align="left" size="32px" margin="86px 0 0 0" bold >RANK</Text>
                 
                     <Grid flex="flex" >
                         <Grid  flex="flex;flex-wrap:wrap;justify-content:space-between;">
