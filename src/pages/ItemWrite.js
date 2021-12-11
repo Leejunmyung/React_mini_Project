@@ -101,12 +101,6 @@ const PostWrite = (props) => {
         
         <>
           <Grid contentWrap>
-            <Grid _onClick={()=>{history.push("/");}}>
-                <Text size="40px" bold >
-                    Logo
-                </Text>
-            </Grid>
-
             
             <Text  align="left" size="20px" bold >
             {local_nickname} 님!<br/>
@@ -126,7 +120,7 @@ const PostWrite = (props) => {
                 {
                 is_edit ?
                 <Text  align="left" size="20px" bold >목표 금액: {_item? item.targetPrice:""} 원</Text>
-                : <Input type ="number" value={targetPrice} _onChange={change_goal} InputTitle label="목표 금액*" placeholder="상품금액 10배이상을 지정해주세요." margin="40px 0 0 0"></Input>
+                : <Input type ="number" value={targetPrice} _onChange={change_goal} InputTitle label="목표 금액*" placeholder="상품금액 100배 이상을 지정해주세요." margin="40px 0 0 0"></Input>
                 }
                 <input ref={fileInput}  id="bfile"  type="file" onChange={selectFile}/>
                 <input ref={fileInput2} id='bfile2'  type="file" onChange={selectFile2}/>
