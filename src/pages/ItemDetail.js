@@ -38,20 +38,20 @@ const PostDetail = (props) => {
     //addComment  버튼
     const addComment = () => {
 
-        if(local_token){
+        if(local_token && !commentText == ""){
             //댓글 dispatch
             dispatch(commentActions.addCommentNJ(itemId,commentText));
             window.location.reload(`/item/:${itemId}`)
             // dispatch(commentActions.addCommentNJ());
+        }else if(local_token && commentText == ""){
+            window.alert("댓글 내용을 입력해주세요.");
+            return;
         }else{
             window.alert('로그인이 필요합니다.');
             history.push('/login');
         }
 
-        if(commentText == ""){
-            window.alert("댓글 내용을 입력해주세요.");
-            return;
-        }
+        
 
     }
 
