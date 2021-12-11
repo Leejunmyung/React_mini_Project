@@ -7,13 +7,13 @@ const Rank = (props) => {
     const {_onClick} = props;
     return (
         <>
-        <Grid flex="flex; align-items:center;justify-content:space-between;" width="380px" margin="0 0 20px 40px" _onClick={_onClick}>
-            <Grid>
-                <Text size="20px" align="left" margin="0"> {props.title}</Text>
-                <Text margin="0 0 0 20px" align="left">{props.percent} %</Text>
+        <Grid flex="flex; align-items:flex-start;justify-content:space-between;"  margin="0 0 20px 20px" _onClick={_onClick}>
+            <Grid width="80%">
+                <Text size="16px" align="left" margin="0"> {props.title}</Text>
+                <Text margin="10px 10px 0 0" align="left">{props.percent} %</Text>
             </Grid>
             
-                <Image shape="small" margin="0"/>
+                <Image shape="small" margin="0" src={"http://" + props.thumbnail} />
             
         </Grid>
         </>

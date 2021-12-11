@@ -31,6 +31,7 @@ const PostDetail = (props) => {
     const [commentText,setComment] = React.useState('');
 
     const onComment = (e) => {
+        
         setComment(e.target.value);
     }
 
@@ -46,6 +47,12 @@ const PostDetail = (props) => {
             window.alert('로그인이 필요합니다.');
             history.push('/login');
         }
+
+        if(commentText == ""){
+            window.alert("댓글 내용을 입력해주세요.");
+            return;
+        }
+
     }
 
     const deleteItem = () => {
@@ -72,16 +79,16 @@ const PostDetail = (props) => {
     
     return (
         <>
-            <Image shape="full"></Image>
-            <Grid contentWrap>
-                <Grid margin="100px 0 0 0" flex="flex">
+            
+            <Grid detailWrap >
+                <Grid margin="100px 0 80px 0" flex="flex">
                     <Image src={"http://" + item.images} shape="big"></Image>
                     <Grid  width="380px" margin="0 0 0 20px ">
-                        <Text size="21px;" align="left" bold >{itemId}. 달성도: %</Text>
+                        <Text size="20px;" align="left" bold ><Text span bold size="32px" margin="0 0 0 10px">{item.percent} % </Text>달성</Text>
                         <Line/>
-                        <Text size="21px;" align="left"  >목표 금액: {item.targetPrice} </Text>
-                        <Text size="21px;" align="left"  >상품 금액: {item.price}</Text>
-                        <Text size="21px;" align="left"  >작성 날짜: {item.date}</Text> 
+                        <Text size="20px;" align="left" >목표금액: <Text span bold size="28px" margin="0 0 0 10px">{item.targetPrice} 원 </Text>  </Text>
+                        <Text size="20px;" align="left" >상품금액: <Text span bold size="28px" margin="0 0 0 10px">{item.price} 원 </Text></Text>
+                        <Text size="20px;" align="left" >작성날짜: <Text span bold size="20px" margin="0 0 0 10px">{item.date} </Text> </Text> 
 
                         <Button text="펀딩하기" _onClick={funding}></Button>
                         {
@@ -94,7 +101,7 @@ const PostDetail = (props) => {
                     </Grid>
                 </Grid> 
 
-                <Grid margin="60px 0 0 0">
+                <Grid margin="">
                     <Text size="40px" bold align="left">제목 : {item.title}</Text>
                     <Grid>
                         
@@ -114,31 +121,33 @@ const PostDetail = (props) => {
                     {
                         local_token && 
                         <Grid> 
-                            <Input textarea value={commentText} _onChange={onComment}></Input>
+                            <Input textarea value={commentText} _onChange={onComment} placeholder="댓글을 입력하세요."></Input>
                        </Grid>
                     }
                     
                     <Line margin="10px 0 30px 0 "/>
                 </Grid>
 
+                <Grid margin="0 0 80px 0">
                 {
                     comment_list.map((p,idx) => {
                         return (
                             <>
-                            <Grid>
-                                <Text align="left">{p.nickname} </Text>
-                                <Grid flex="flex; align-items:center; ">
+                            <Grid flex="flex; justify-content:flex-start; align-items:flex-start; " margin="10px ">
+                                <Text span align="left" margin="0 20px 0 0">{p.nickname} </Text>
+                                <Grid margin="0">
 
                                     {/* <Input boxSizing ="content-box" padding ="10px 230px 10px 20px  " type="text" placeholder="댓글 : comment" height="48px"/>
                                     */}
-                                    <Text>{p.comment}</Text>
-                                    <Button position="absolute;right:10px;" width="200px" check_btn text="삭제" />
+                                    <Text margin="0">{p.comment}</Text>
+                                    
                                 </Grid>
                             </Grid>
                         </>
                         );
                     })
                 }
+                </Grid>
       
             </Grid>
         </>

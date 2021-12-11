@@ -47,19 +47,21 @@ Image.defaultProps = {
 
 const ImageSmall = styled.div`
     width: 150px;
-    height: 65px;
+    height: 80px;
     background-image: url("${(props) => props.src}");
     background-size: cover;
+    background-position:center;
 `
 const ImageMedium = styled.div`
     width: 100%;
     height: 175px;
     background-image: url("${(props) => props.src}");
     background-size: cover;
+    background-position:center;
 `
 const ImageBig = styled.div`
-    width: 640px;
-    height: 355px;
+    width: 600px;
+    height: 400px;
     background-image: url("${(props) => props.src}");
     background-size: cover;
 `
@@ -76,6 +78,7 @@ const ImageLogo = styled.div`
     height: 75px;
     background-image: url("${(props) => props.src}");
     background-size: cover;
+    margin:10px 0; 
 `
 
 
