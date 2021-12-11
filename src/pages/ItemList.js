@@ -28,13 +28,18 @@ const ItemList = (props) => {
         }
         dispatch(itemActions.getRankNJ());
 
-    },[])
+    },[]);
 
     
     return (
         <>
-            <Grid> 
-                <Image shape="full"/>
+            <Grid position="relative;"> 
+                <Grid contentWrap >
+                    <Grid position="absolute;top:80px;" >
+                        <Text size="45px;" bold>Hello,<br/>We are ECO FUNDING GROUP</Text>
+                    </Grid>
+                </Grid>
+                <Image shape="full" src="https://images.unsplash.com/photo-1500314144216-35ed69e42b7b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"/>
             </Grid>
             <Grid contentWrap>
             <Text align="left" size="40px">이 에코펀딩 어때요?</Text>
