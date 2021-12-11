@@ -22,6 +22,7 @@
 ## 🥇 Developers
 
 - **Back-end**
+- Backend Github : https://github.com/JooYoung2274/Eco_funding
   - 김주영
   - 김금동
   - 전익현
@@ -29,7 +30,7 @@
 - **Front-end**
   - 서민지
   - 이준명
-  - 장익상
+
 <br>
 
 ## ▶️ List
