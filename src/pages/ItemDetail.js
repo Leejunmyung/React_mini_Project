@@ -18,10 +18,10 @@ const PostDetail = (props) => {
     // const item_list = useSelector((store)=> store.item.result);
     // const item_idx = item_list.findIndex(p => p.id === itemId);
     const item = useSelector((store)=> store.item.one_item);
-    console.log(item)
+    
     const local_token = localStorage.getItem('token');
     const local_nickname = localStorage.getItem('nickname');
-
+    
 
     const funding = () => {
         dispatch(itemActions.addFundingNJ(itemId, item.price ))
@@ -75,7 +75,7 @@ const PostDetail = (props) => {
             <Image shape="full"></Image>
             <Grid contentWrap>
                 <Grid margin="100px 0 0 0" flex="flex">
-                    <Image src={"http://" + item.thumbnail} shape="big"></Image>
+                    <Image src={"http://" + item.images} shape="big"></Image>
                     <Grid  width="380px" margin="0 0 0 20px ">
                         <Text size="21px;" align="left" bold >{itemId}. 달성도: %</Text>
                         <Line/>

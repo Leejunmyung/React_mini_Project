@@ -22,8 +22,8 @@ const PostWrite = (props) => {
     const [price, setPrices] = React.useState("");
     const [targetPrice, settargetPrice] = React.useState("");
     const [textarea, setTexts] = React.useState(_item? _item.content : "");
-    console.log(item, fileInput, fileInput2)
-    
+    const local_nickname = localStorage.getItem('nickname');
+    console.log(item)
     // console.log(item)
     // const [filevalue1, setFile] = React.useState("");
     // const [filevalue2, setF] = React.useState("");
@@ -109,7 +109,7 @@ const PostWrite = (props) => {
 
             
             <Text  align="left" size="20px" bold >
-                {}님!<br/>
+            {local_nickname} 님!<br/>
                 {
                 is_edit ?
                "프로젝트 수정 페이지 입니다.": "새로운 프로젝트를 소개해보세요."
@@ -118,8 +118,16 @@ const PostWrite = (props) => {
 
             <Grid>
                 <Input value={title} _onChange={change_title} InputTitle label="프로젝트 제목*" placeholder="프로젝트 제목을 입력하세요." margin="40px 0 0 0"></Input>
-                <Input type ="number" value={price} _onChange={change_price} InputTitle label="상품 금액*" placeholder="하나의 상품 금액을 입력하세요."  margin="40px 0 0 0"></Input>
-                <Input type ="number" value={targetPrice} _onChange={change_goal} InputTitle label="목표 금액*" placeholder="상품금액 10배이상을 지정해주세요." margin="40px 0 0 0"></Input>
+                {
+                is_edit ?
+                <Text  align="left" size="20px" bold >상품 금액: {_item? item.price:""} 원</Text>
+                : <Input type ="number" value={price} _onChange={change_price} InputTitle label="상품 금액*" placeholder="하나의 상품 금액을 입력하세요."  margin="40px 0 0 0"></Input>
+                }
+                {
+                is_edit ?
+                <Text  align="left" size="20px" bold >목표 금액: {_item? item.targetPrice:""} 원</Text>
+                : <Input type ="number" value={targetPrice} _onChange={change_goal} InputTitle label="목표 금액*" placeholder="상품금액 10배이상을 지정해주세요." margin="40px 0 0 0"></Input>
+                }
                 <input ref={fileInput}  id="bfile"  type="file" onChange={selectFile}/>
                 <input ref={fileInput2} id='bfile2'  type="file" onChange={selectFile2}/>
                 <Input value={textarea} _onChange={change_text} textarea label="프로젝트 상세 내용*" placeholder="프로젝트 상세 내용을 입력하세요." margin="40px 0 15px 0"></Input>
