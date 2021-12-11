@@ -31,6 +31,11 @@ const Image = (props) => {
             <ImageFull {...styles}></ImageFull>
         );
     };
+    if(shape === "logo"){
+        return (
+            <ImageLogo {...styles}></ImageLogo>
+        );
+    };
 };
 
 Image.defaultProps = {
@@ -62,6 +67,13 @@ const ImageBig = styled.div`
 const ImageFull = styled.div`
     width: 100%;
     height:400px; 
+    background-image: url("${(props) => props.src}");
+    background-size: cover;
+    background-position:center;
+`
+const ImageLogo = styled.div`
+    width: 100%;
+    height: 75px;
     background-image: url("${(props) => props.src}");
     background-size: cover;
 `
