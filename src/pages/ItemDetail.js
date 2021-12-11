@@ -40,6 +40,7 @@ const PostDetail = (props) => {
         if(local_token){
             //댓글 dispatch
             dispatch(commentActions.addCommentNJ(itemId,commentText));
+            window.location.reload(`/item/:${itemId}`)
             // dispatch(commentActions.addCommentNJ());
         }else{
             window.alert('로그인이 필요합니다.');
@@ -60,10 +61,6 @@ const PostDetail = (props) => {
     }
 
     React.useEffect(() => {
-
-        // if(item){
-        //    return; 
-        // }
 
         dispatch(itemActions.getOneItemNJ(itemId));
         dispatch(commentActions.getCommentNJ(itemId));
