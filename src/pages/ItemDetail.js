@@ -90,11 +90,11 @@ const PostDetail = (props) => {
                         <Text size="20px;" align="left" >상품금액: <Text span bold size="28px" margin="0 0 0 10px">{item.price} 원 </Text></Text>
                         <Text size="20px;" align="left" >작성날짜: <Text span bold size="20px" margin="0 0 0 10px">{item.date} </Text> </Text> 
 
-                        <Button text="펀딩하기" _onClick={funding}></Button>
+                        <Button text="펀딩하기" _onClick={funding} margin="0 0 5px 0"></Button>
                         {
                             local_token && local_nickname == item.nickname &&
                             <>
-                            <Button text="수정하기" _onClick={editItem}></Button>
+                            <Button text="수정하기" _onClick={editItem} margin="0 0 5px 0"></Button>
                             <Button text="삭제하기" _onClick={deleteItem}></Button>
                             </>
                         }
