@@ -73,7 +73,7 @@ Input.defaultProps = {
     placeholder:'텍스트',
     type:'text',
     value:'',
-    padding:"",
+    padding:"10px",
     boxSizing:'border-box',
     _onChange:()=>{},
     height:"60px",
@@ -93,6 +93,7 @@ const InputBox = styled.input`
     color:#c4c4c4;
     font-size:17px;
     margin:15px 0;
+    font-family: 'Noto Sans KR';
 `;
 
 const Textarea = styled.textarea`
@@ -100,6 +101,7 @@ width:100%;
 padding:10px;
 box-sizing:border-box;
 font-size:18px;
+font-family: 'Noto Sans KR';
 
 `;
 

@@ -20,7 +20,7 @@ const Line = (props) => {
 Line.defaultProps = {
   width:'100%',
   height:'1px',
-  bg:'#202020',
+  bg:'#bbb',
   margin:false,
 };
 

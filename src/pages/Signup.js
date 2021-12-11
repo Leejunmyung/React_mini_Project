@@ -60,16 +60,21 @@ const Signup = (props) => {
           회원가입
         </Text>
         <Grid position="relative" >
-            <Button _onClick={id_conflict} position="absolute; right:5px; top:48px" width="80px" text="중복확인"></Button>
+            <Button _onClick={id_conflict} position="absolute; right:5px; top:50px" width="80px" text="중복확인"></Button>
             <Input value={id} placeholder="로그인 할 아이디" label="아이디" padding ="5px 0px 5px 10px"
             _onChange={(e) => {setId(e.target.value)}}></Input>
-            {id_check == "true" && <span>중복확인되었습니다.</span>}
+            {id_check == "true" && <Text span size="15px;letter-spacing:-0.5px" color="#00711c">중복확인되었습니다.</Text>}
+            {id_check == null && <Text span size="15px;letter-spacing:-0.5px" color="#ff0000">중복체크를 해주세요.</Text>}
+            {id_check == "fail" && <Text span size="15px;letter-spacing:-0.5px" color="#ff0000">영문 소문자, 숫자로만 가능합니다.</Text>}
         </Grid>
         <Grid position="relative" >
-            <Button _onClick={nick_conflict} position="absolute; right:5px; top:48px" width="80px" text="중복확인"></Button>
+            <Button _onClick={nick_conflict} position="absolute; right:5px; top:50px" width="80px" text="중복확인"></Button>
             <Input value={nickName} placeholder="두 글자 이상 닉네임" label="닉네임" padding ="5px 0px 5px 10px"
             _onChange={(e) => {setnickName(e.target.value)}}></Input>
-            {nick_check == "true" && <span>중복확인되었습니다.</span>}
+            
+            {nick_check == "true" && <Text span size="15px;letter-spacing:-0.5px" color="#00711c">중복확인되었습니다.</Text>}
+            {nick_check == null && <Text span size="15px;letter-spacing:-0.5px" color="#ff0000">중복체크를 해주세요.</Text>}
+            {nick_check == "fail" && <Text span size="15px;letter-spacing:-0.5px" color="#ff0000">영문 소문자, 숫자로만 가능합니다.</Text>}
             
         </Grid>
        

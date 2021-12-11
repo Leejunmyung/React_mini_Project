@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Grid = (props) => {
 
-    const {position,children,flex,width,padding,margin,_onClick,contentWrap,signWrap,align} = props;
+    const {position,children,flex,width,padding,margin,_onClick,contentWrap,signWrap,detailWrap,align} = props;
     const styles = {
         flex:flex,
         position:position,
@@ -19,6 +19,14 @@ const Grid = (props) => {
             <ContentWrap  {...styles}  onClick={_onClick}>
                 {children}
             </ContentWrap>
+        );
+    }
+
+    if(detailWrap){
+        return (
+            <DetailWrap  {...styles}  onClick={_onClick}>
+                {children}
+            </DetailWrap>
         );
     }
 
@@ -68,6 +76,18 @@ const ContentWrap = styled.div`
     text-align:${(props) => props.align};
 
 `;
+
+const DetailWrap = styled.div`
+    position:relative;
+    width:1000px;
+    margin:0 auto;
+    *border:1px solid #eee;  // 임시로 지정
+    display:${(props)=> props.flex ? `${props.flex}`:""};
+    text-align:${(props) => props.align};
+
+`;
+
+
 const SignWrap = styled.div`
     position:relative;
     width:400px;
