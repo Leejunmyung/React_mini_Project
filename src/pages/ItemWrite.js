@@ -91,8 +91,7 @@ const PostWrite = (props) => {
                 return;
             }
             dispatch(itemActions.addItemNJ(title, price, targetPrice, textarea, fileInput.current.files[0], fileInput2.current.files[0]));
-                history.push('/');
-                window.location.reload();
+                
             
         }
     

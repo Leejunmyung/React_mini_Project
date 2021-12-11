@@ -108,7 +108,8 @@ const addItemNJ = ( title, price, targetPrice, textarea, file, file2) => {
         `Bearer ${token}` }
     }
     ).then(function(response){
-      console.log(response)
+      history.push('/');
+      window.location.reload();
     }).catch(error => {
       console.log(error.message);
     });
@@ -124,7 +125,7 @@ const editItemNJ = (itemId,title, textarea, file, file2) => {
     const token = localStorage.getItem('token');
 
     form.append('title', title)
-    form.append('textarea', textarea)
+    form.append('content', textarea)
     form.append('thumbnail', file)
     form.append('images', file2 )
     
@@ -135,7 +136,7 @@ const editItemNJ = (itemId,title, textarea, file, file2) => {
         `Bearer ${token}` }
     }
     ).then(function(response){
-      console.log(response)
+      history.push('/');
       window.location.reload('/');
     })
   }
